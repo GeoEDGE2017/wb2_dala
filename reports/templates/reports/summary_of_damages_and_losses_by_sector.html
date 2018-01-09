@@ -1,8 +1,6 @@
 {% extends "dashboard/base.html" %}
 {% block content %}
 <main class="main" ng-app="sumOfDamagesAndLossesBySectorApp" ng-controller="sumOfDamagesAndLossesBySectorController">
-<!--<main class="main">-->
-    <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="{% url 'admin:index' %}">Admin</a>
@@ -17,6 +15,39 @@
         </li>
     </ol>
     <div class="container-fluid" ng-form name="">
+        <table class="table table-bordered">
+            <colgroup>
+                <col width="293"/>
+                <col width="254"/>
+                <col width="145"/>
+                <col width="221"/>
+                <col width="63"/>
+                <col width="63"/>
+                <col width="63"/>
+                <col width="63"/>
+                <col width="63"/>
+            </colgroup>
+            <tbody>
+            <tr class="trhead1" height="19">
+                <td height="19" width="293">
+                    Incident
+                </td>
+                <td height="19" colspan="8" width="254">
+                    <select id="select" name="incident" ng-model="incident"
+                            class="form-control" style="width:100%;font-weight:400;" ng-change="changedValue(incident);fetchProvinces();
+                            fetchSummaryData()" required>
+                        <option value="" selected="true">Select an Incident</option>
+                        {% for incident in incidents %}
+                        <option value={{incident.id}}>
+                            {{incident.incident_name}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <span ng-bind="user_id={{user.id}}" style="display:none;"></span>
+            </tr>
+            </tbody>
+        </table>
         <table class="table table-bordered">
             <colgroup>
                 <col width="222"/>

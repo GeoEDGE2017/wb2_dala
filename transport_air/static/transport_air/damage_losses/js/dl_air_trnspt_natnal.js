@@ -29,7 +29,7 @@ app.controller("DlSummeryTANatController", ['$scope','$http',function ($scope,$h
                 method: "POST",
                 url: '/dl_fetch_district_disagtn',
                 data: angular.toJson({
-                    'table_name':'Table_5',
+                    'table_name': 'Table_5',
                     'sector': 'transport_air',
                     'com_data': {
                         'incident': $scope.incident,

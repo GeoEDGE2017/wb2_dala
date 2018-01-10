@@ -5,8 +5,6 @@ app.controller("sumOfDamagesAndLossesBySectorController", function ($scope,$http
     $scope.incident;
 
     $scope.fetchSummaryData = function() {
-        alert('loadData');
-        console.log('loadData');
         if($scope.incident) {
             $http({
                 method: "POST",
@@ -16,15 +14,30 @@ app.controller("sumOfDamagesAndLossesBySectorController", function ($scope,$http
                         'incident': $scope.incident,
                     },
                     'sectors': [
+                        {'transport_land': ['DmgLandTransportationTot', 'LosLandTransportationTot', 'LandTransportationTotPub', 'LandTransportationTotPvt']},
+                        {'transport_air': ['DmgAirTransportationTot', 'LosAirTransportationTot', 'AirTransportationTotPub', 'AirTransportationTotPvt']},
+                        {'transport_water': ['DmgWaterTransportationTot', 'LosWaterTransportationTot', 'WaterTransportationTotPub', 'WaterTransportationTotPvt']},
+                        {'transport_rail': ['DmgRailTransportationTot', 'LosRailTransportationTot', 'RailTransportationTotPub']},
+                        {'power_supply': ['DmgPowerSupplyTot', 'LosPowerSupplyTot', 'PowerSupplyTotPub']},
+                        {'water_supply': ['DmgWaterSupplyTot', 'LosWaterSupplyTot', 'WaterSupplyTotPub']},
+                        {'telecommunication': ['DmgCommunicationTot', 'LosCommunicationTot', 'CommunicationTotPub','CommunicationTotPvt']},
+                        {'agri_agrarian': ['DmgAgrarianTot', 'LosAgrarianTot', 'AgrarianTotPub', 'AgrarianTotPvt']},
+                        {'agri_livestock': ['DmgLivestockTot', 'LosLivestockTot', 'LivestockTotPub', 'LivestockTotPvt']},
+                        {'agri_fisheries': ['DmgFisheriesTot', 'LosFisheriesTot', 'FisheriesTotPub', 'FisheriesTotPvt']},
+                        {'agri_irrigation': ['DmgIrrigationTot', 'LosIrrigationTot', 'IrrigationTotPub']},
+                        {'industry_services': ['DmgIndustryServicesTot', 'LosIndustryServicesTot', 'IndustryServicesTotPub','IndustryServicesTotPvt']},
+                        {'tourism': ['DmgTourismTot', 'LosTourismTot', 'TourismTotPub','TourismTotPvt']},
+                        {'housing': ['DmgHousingTot', 'LosHousingTot', 'HousingTotPvt']},
                         {'health': ['DmgHealthTot', 'LosHealthTot', 'HealthTotPub', 'HealthTotPvt']},
                         {'education': ['DmgEducationTot', 'EducationTotPub', 'EducationTotPvt', 'LosEducationTot']},
-                        {'mining': ['DmgMiningTot', 'LosMiningTot', 'MiningTotPub', 'MiningTotPvt']}
+                        {'mining': ['DmgMiningTot', 'LosMiningTot', 'MiningTotPub', 'MiningTotPvt']},
+                        {'other_government': ['DmgOthGovSerTot', 'LosOthGovSerTot', 'OthGovSerTotPub']}
                     ]
                 }),
             }).success(function(data) {
-                console.log('load ', data);
                 $scope.data = data;
-                $scope.dlWaterSupplySumNat = data;
+                $scope.sector_summary = data;
+                console.log($scope.sector_summary);
 
     //            if($scope.checkIfNull()) {
     //                $("#modal-container-239456").modal('show');
@@ -38,5 +51,5 @@ app.controller("sumOfDamagesAndLossesBySectorController", function ($scope,$http
         return isNull;
     }
 
-    $scope.fetchSummaryData();
+//    $scope.fetchSummaryData();
 })

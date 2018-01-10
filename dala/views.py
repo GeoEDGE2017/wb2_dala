@@ -1763,9 +1763,6 @@ def dl_fetch_edit_data_with_array(request):
     dl_new_data[sector][table_name] = {}
 
     for tbl in dl_mtable_data[sector][table_name]:
-        print '-----', tbl
-        print '=====', keys
-
         for key in keys:
             if tbl == key:
                 # school_model = apps.get_model(sub_app_name, tbl)
@@ -1782,7 +1779,6 @@ def dl_fetch_edit_data_with_array(request):
                 print '@', data_set_ids
 
                 array_table_out = []
-                print '---------------'
                 for data_set_id in data_set_ids:
                     array_table_in = []
                     for i in dl_mtable_data[sector][table_name][tbl]:
@@ -1791,7 +1787,6 @@ def dl_fetch_edit_data_with_array(request):
                         if i[keys[key]] == data_set_id:
                             array_table_in.append(i)
                     array_table_out.append(array_table_in)
-                print '==============='
                 print array_table_out
                 dl_new_data[sector][table_name][tbl] = array_table_out
                 break
@@ -1807,21 +1802,15 @@ def dl_fetch_edit_data_with_array(request):
 @csrf_exempt
 def dl_save_edit_data(table_data, com_data, current_user):
     todate = timezone.now()
-    print "\n"
-    print "Edit -------------", current_user
-    print "com_data", com_data
     for sector in table_data:
-
         sub_app_name = sector + '.damage_losses'
 
         for interface_table in table_data[sector]:
             print 'interface table', ' -->', interface_table, '\n'
             for db_table in table_data[sector][interface_table]:
-
                 print 'db table', ' -->', db_table, '\n'
 
                 for row in table_data[sector][interface_table][db_table]:
-
                     print 'row', row
                     print 'db_table', db_table,
 
@@ -1872,20 +1861,13 @@ def dl_save_edit_data_with_array(table_data, com_data):
     todate = timezone.now()
     print "Edit -------------"
     for sector in table_data:
-
         sub_app_name = sector + '.damage_losses'
-
         for interface_table in table_data[sector]:
             print 'interface table', ' -->', interface_table, '\n'
             for db_table in table_data[sector][interface_table]:
-
                 print 'db table', ' -->', db_table, '\n'
-
                 for row in table_data[sector][interface_table][db_table]:
-
                     model_class = apps.get_model(sub_app_name, db_table)
-
-                    print '*** ', row, ' - ', type(row)
                     if isinstance(row, list):
                         for row_in in row:
                             if not has_the_id(row_in):
@@ -1897,10 +1879,6 @@ def dl_save_edit_data_with_array(table_data, com_data):
                                 for com_property in com_data:
                                     print com_data[com_property]
                                     setattr(model_object, com_property, com_data[com_property])
-
-                                # for property in row_in:
-                                #     setattr(model_object, property, row[property])
-                                #     print 'property ', ' --> ', property, ' db_property ', row_in[property], ' index ', '\n'
 
                                 for item in row_in:
                                     print 'model_object_item ', model_object
@@ -1976,22 +1954,16 @@ def dl_save_edit_data_with_array(table_data, com_data):
 @csrf_exempt
 def dl_delete_data(table_data, com_data):
     todate = timezone.now()
-    print "\n"
-    print "Delete -------------"
     for sector in table_data:
-
         sub_app_name = sector + '.damage_losses'
 
         for interface_table in table_data[sector]:
             print 'interface table', ' -->', interface_table, '\n'
             for db_table in table_data[sector][interface_table]:
-
                 print 'db table', ' -->', db_table, '\n'
 
                 for row in table_data[sector][interface_table][db_table]:
-
                     print 'row', row
-
                     model_class = apps.get_model(sub_app_name, db_table)
 
                     if has_the_id(row):
@@ -2003,7 +1975,6 @@ def dl_delete_data(table_data, com_data):
 
 @csrf_exempt
 def has_the_id(row):
-
     keys = row.keys()
 
     for item in keys:
@@ -2099,12 +2070,8 @@ def dl_fetch_district_disagtn(request):
     incident = com_data['incident']
     tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
 
-    print 'tables', tables
     dl_mtable_data = {sector: {}}
-    print '*******', type(dl_mtable_data)
-
     dl_mtable_data[sector][table_name] = {}
-    print '*******', type(dl_mtable_data)
 
     filter_fields = {}
     sub_app_name = sector + '.damage_losses'
@@ -2230,6 +2197,7 @@ def fetch_entities(request):
     )
 
 
+# dileepa
 @csrf_exempt
 def fetch_company_tele(request):
     data = (yaml.safe_load(request.body))
@@ -2535,6 +2503,7 @@ def dl_fetch_summary_dis_disagtn(request):
     )
 
 
+# dileepa
 @csrf_exempt
 def get_user_id_from_username(username):
     # from django.db import models
@@ -2544,6 +2513,7 @@ def get_user_id_from_username(username):
     print '*******', username, result
 
 
+# dileepa
 # this method is only use for transport summary national should move to it's view.py
 @csrf_exempt
 def fetch_trans_rail_losses(request):
@@ -2569,6 +2539,7 @@ def fetch_trans_rail_losses(request):
     )
 
 
+# dileepa
 # this method is only use for education, this should move to it's view.py
 @csrf_exempt
 def edit_school(request):
@@ -2589,6 +2560,7 @@ def edit_school(request):
     return HttpResponse(object_id)
 
 
+# dileepa
 @csrf_exempt
 def get_summary_data_by_sector(request):
     print "--------- get_summary_data_by_sector"
@@ -2614,22 +2586,18 @@ def get_summary_data_by_sector(request):
                 try:
                     filterd_fields = tables[key][view]
                     sector_summary['report'][key][view] = list(dl_session_model.objects.filter(incident=incident).values(*filterd_fields))
-
-                    print sector_summary['report'][key][view]
                 except Exception as e:
                     print 'error', e
 
-    print '========'
     print sector_summary
 
     return HttpResponse(
         json.dumps((sector_summary), cls=DjangoJSONEncoder),
         content_type='application/javascript; charset=utf8'
     )
-    #
-    # print 'update'
-    # object_id = model_fields['id']
-    # modified_model = model_class.objects.filter(pk=object_id)
-    # modified_model.update(**model_fields)
-    # print object_id
-    # return HttpResponse(object_id)
+
+
+# dileepa
+@csrf_exempt
+def get_summary_data_by_sector_for_provinces(request):
+    pass

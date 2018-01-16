@@ -105,37 +105,37 @@
                         Transportation
                     </td>
                     <td class="right"
-                        ng-bind="(sector_summary.report.transport_land.DmgLandTransportationTot[0].damages +
-                        sector_summary.report.transport_air.DmgAirTransportationTot[0].tot_destroyed +
-                        sector_summary.report.transport_water.DmgWaterTransportationTot[0].tot_destroyed +
-                        sector_summary.report.transport_rail.DmgRailTransportationTot[0].tot_damages) | number">
+                        ng-bind="(sector_summary.report.Table_1.transport_land.DmgLandTransportationTot[0].damages +
+                        sector_summary.report.Table_1.transport_air.DmgAirTransportationTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_water.DmgWaterTransportationTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_rail.DmgRailTransportationTot[0].tot_damages) | number">
                     </td>
                     <td class="right"
-                        ng-bind="(sector_summary.report.transport_land.LosLandTransportationTot[0].loss +
-                        sector_summary.report.transport_air.LosAirTransportationTot[0].tot_los +
-                        sector_summary.report.transport_water.LosWaterTransportationTot[0].tot_los +
-                        sector_summary.report.transport_rail.LosRailTransportationTot[0].tot_los) | number">
+                        ng-bind="(sector_summary.report.Table_1.transport_land.LosLandTransportationTot[0].loss +
+                        sector_summary.report.Table_1.transport_air.LosAirTransportationTot[0].tot_los +
+                        sector_summary.report.Table_1.transport_water.LosWaterTransportationTot[0].tot_los +
+                        sector_summary.report.Table_1.transport_rail.LosRailTransportationTot[0].tot_los) | number">
                     </td>
                     <td class="right"
-                        ng-bind="(sector_summary.report.transport_land.DmgLandTransportationTot[0].damages +
-                        sector_summary.report.transport_air.DmgAirTransportationTot[0].tot_destroyed +
-                        sector_summary.report.transport_water.DmgWaterTransportationTot[0].tot_destroyed +
-                        sector_summary.report.transport_rail.DmgRailTransportationTot[0].tot_damages) +
-                        (sector_summary.report.transport_land.LosLandTransportationTot[0].loss +
-                        sector_summary.report.transport_air.LosAirTransportationTot[0].tot_los +
-                        sector_summary.report.transport_water.LosWaterTransportationTot[0].tot_los +
-                        sector_summary.report.transport_rail.LosRailTransportationTot[0].tot_los)| number">
+                        ng-bind="(sector_summary.report.Table_1.transport_land.DmgLandTransportationTot[0].damages +
+                        sector_summary.report.Table_1.transport_air.DmgAirTransportationTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_water.DmgWaterTransportationTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_rail.DmgRailTransportationTot[0].tot_damages) +
+                        (sector_summary.report.Table_1.transport_land.LosLandTransportationTot[0].loss +
+                        sector_summary.report.Table_1.transport_air.LosAirTransportationTot[0].tot_los +
+                        sector_summary.report.Table_1.transport_water.LosWaterTransportationTot[0].tot_los +
+                        sector_summary.report.Table_1.transport_rail.LosRailTransportationTot[0].tot_los)| number">
                     </td>
                     <td class="right"
-                        ng-bind="(sector_summary.report.transport_land.LandTransportationTotPub[0].damages +
-                        sector_summary.report.transport_air.AirTransportationTotPub[0].tot_destroyed +
-                        sector_summary.report.transport_water.WaterTransportationTotPub[0].tot_destroyed +
-                        sector_summary.report.transport_rail.RailTransportationTotPub[0].dmg_tot_pub) | number">
+                        ng-bind="(sector_summary.report.Table_1.transport_land.LandTransportationTotPub[0].damages +
+                        sector_summary.report.Table_1.transport_air.AirTransportationTotPub[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_water.WaterTransportationTotPub[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_rail.RailTransportationTotPub[0].dmg_tot_pub) | number">
                     </td>
                     <td class="right"
-                        ng-bind="(sector_summary.report.transport_land.LandTransportationTotPvt[0].tot_damages_pvt +
-                        sector_summary.report.transport_air.AirTransportationTotPvt[0].tot_destroyed +
-                        sector_summary.report.transport_water.WaterTransportationTotPvt[0].tot_destroyed) | number">
+                        ng-bind="(sector_summary.report.Table_1.transport_land.LandTransportationTotPvt[0].tot_damages_pvt +
+                        sector_summary.report.Table_1.transport_air.AirTransportationTotPvt[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_water.WaterTransportationTotPvt[0].tot_destroyed) | number">
                     </td>
                 </tr>
                 <tr height="20">
@@ -143,20 +143,20 @@
                         Land Transportation
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_land.DmgLandTransportationTot[0].damages | number">
+                        ng-bind="sector_summary.report.Table_1.transport_land.DmgLandTransportationTot[0].damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_land.LosLandTransportationTot[0].loss | number">
+                        ng-bind="sector_summary.report.Table_1.transport_land.LosLandTransportationTot[0].loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_land.DmgLandTransportationTot[0].damages +
-                        sector_summary.report.transport_land.LosLandTransportationTot[0].loss | number">
+                        ng-bind="sector_summary.report.Table_1.transport_land.DmgLandTransportationTot[0].damages +
+                        sector_summary.report.Table_1.transport_land.LosLandTransportationTot[0].loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_land.LandTransportationTotPub[0].damages | number">
+                        ng-bind="sector_summary.report.Table_1.transport_land.LandTransportationTotPub[0].damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_land.LandTransportationTotPvt[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.transport_land.LandTransportationTotPvt[0].tot_damages_pvt | number">
                     </td>
                 </tr>
                 <tr height="20">
@@ -164,20 +164,20 @@
                         Air Transportation
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_air.DmgAirTransportationTot[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.transport_air.DmgAirTransportationTot[0].tot_destroyed | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_air.LosAirTransportationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.transport_air.LosAirTransportationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_air.DmgAirTransportationTot[0].tot_destroyed +
-                        sector_summary.report.transport_air.LosAirTransportationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.transport_air.DmgAirTransportationTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_air.LosAirTransportationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_air.AirTransportationTotPub[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.transport_air.AirTransportationTotPub[0].tot_destroyed | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_air.AirTransportationTotPvt[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.transport_air.AirTransportationTotPvt[0].tot_destroyed | number">
                     </td>
                 </tr>
                 <tr height="20" >
@@ -185,20 +185,20 @@
                         Water Transportation
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_water.DmgWaterTransportationTot[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.transport_water.DmgWaterTransportationTot[0].tot_destroyed | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_water.LosWaterTransportationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.transport_water.LosWaterTransportationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_water.DmgWaterTransportationTot[0].tot_destroyed +
-                        sector_summary.report.transport_water.LosWaterTransportationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.transport_water.DmgWaterTransportationTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.transport_water.LosWaterTransportationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_water.WaterTransportationTotPub[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.transport_water.WaterTransportationTotPub[0].tot_destroyed | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_water.WaterTransportationTotPvt[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.transport_water.WaterTransportationTotPvt[0].tot_destroyed | number">
                     </td>
                 </tr>
                 <tr height="20">
@@ -206,17 +206,17 @@
                         Rail Transportation
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_rail.DmgRailTransportationTot[0].tot_damages | number">
+                        ng-bind="sector_summary.report.Table_1.transport_rail.DmgRailTransportationTot[0].tot_damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_rail.LosRailTransportationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.transport_rail.LosRailTransportationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_rail.DmgRailTransportationTot[0].tot_damages +
-                        sector_summary.report.transport_rail.LosRailTransportationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.transport_rail.DmgRailTransportationTot[0].tot_damages +
+                        sector_summary.report.Table_1.transport_rail.LosRailTransportationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.transport_rail.RailTransportationTotPub[0].dmg_tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.transport_rail.RailTransportationTotPub[0].dmg_tot_pub | number">
                     </td>
                     <td>
                     </td>
@@ -226,17 +226,17 @@
                         Power Supply
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.power_supply.DmgPowerSupplyTot[0].tot_destroyed | number">
+                        ng-bind="sector_summary.report.Table_1.power_supply.DmgPowerSupplyTot[0].tot_destroyed | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.power_supply.LosPowerSupplyTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.power_supply.LosPowerSupplyTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.power_supply.DmgPowerSupplyTot[0].tot_destroyed +
-                        sector_summary.report.power_supply.LosPowerSupplyTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.power_supply.DmgPowerSupplyTot[0].tot_destroyed +
+                        sector_summary.report.Table_1.power_supply.LosPowerSupplyTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.power_supply.PowerSupplyTotPub[0].dmg_tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.power_supply.PowerSupplyTotPub[0].dmg_tot_pub | number">
                     </td>
                     <td>
                     </td>
@@ -246,17 +246,17 @@
                         Water Supply
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.water_supply.DmgWaterSupplyTot[0].dmg_tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.water_supply.DmgWaterSupplyTot[0].dmg_tot_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.water_supply.LosWaterSupplyTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.water_supply.LosWaterSupplyTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.water_supply.DmgWaterSupplyTot[0].dmg_tot_pub +
-                        sector_summary.report.water_supply.LosWaterSupplyTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.water_supply.DmgWaterSupplyTot[0].dmg_tot_pub +
+                        sector_summary.report.Table_1.water_supply.LosWaterSupplyTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.water_supply.WaterSupplyTotPub[0].tot_dmg_pub | number">
+                        ng-bind="sector_summary.report.Table_1.water_supply.WaterSupplyTotPub[0].tot_dmg_pub | number">
                     </td>
                     <td>
                     </td>
@@ -266,20 +266,20 @@
                         Communication
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.telecommunication.DmgCommunicationTot[0].tot_damages | number">
+                        ng-bind="sector_summary.report.Table_1.telecommunication.DmgCommunicationTot[0].tot_damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.telecommunication.LosCommunicationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.telecommunication.LosCommunicationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.telecommunication.DmgCommunicationTot[0].tot_damages +
-                        sector_summary.report.telecommunication.LosCommunicationTot[0].tot_los | number">
+                        ng-bind="sector_summary.report.Table_1.telecommunication.DmgCommunicationTot[0].tot_damages +
+                        sector_summary.report.Table_1.telecommunication.LosCommunicationTot[0].tot_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.telecommunication.CommunicationTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.telecommunication.CommunicationTotPub[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.telecommunication.CommunicationTotPvt[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.telecommunication.CommunicationTotPvt[0].tot_damages_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trheadc1">
@@ -302,37 +302,37 @@
                         Agriculture
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.DmgAgrarianTot[0].tot_damages +
-                        sector_summary.report.agri_livestock.DmgLivestockTot[0].tot_damages_pub +
-                        sector_summary.report.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt +
-                        sector_summary.report.agri_irrigation.DmgIrrigationTot[0].damages | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.DmgAgrarianTot[0].tot_damages +
+                        sector_summary.report.Table_1.agri_livestock.DmgLivestockTot[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt +
+                        sector_summary.report.Table_1.agri_irrigation.DmgIrrigationTot[0].damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.LosAgrarianTot[0].tot_damages +
-                        sector_summary.report.agri_livestock.LosLivestockTot[0].tot_damages_pub +
-                        sector_summary.report.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt +
-                        sector_summary.report.agri_irrigation.LosIrrigationTot[0].total_los | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.LosAgrarianTot[0].tot_damages +
+                        sector_summary.report.Table_1.agri_livestock.LosLivestockTot[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt +
+                        sector_summary.report.Table_1.agri_irrigation.LosIrrigationTot[0].total_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="(sector_summary.report.agri_agrarian.DmgAgrarianTot[0].tot_damages +
-                        sector_summary.report.agri_livestock.DmgLivestockTot[0].tot_damages_pub +
-                        sector_summary.report.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt +
-                        sector_summary.report.agri_irrigation.DmgIrrigationTot[0].damages) +
-                        (sector_summary.report.agri_agrarian.LosAgrarianTot[0].tot_damages +
-                        sector_summary.report.agri_livestock.LosLivestockTot[0].tot_damages_pub +
-                        sector_summary.report.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt +
-                        sector_summary.report.agri_irrigation.LosIrrigationTot[0].total_los) | number">
+                        ng-bind="(sector_summary.report.Table_1.agri_agrarian.DmgAgrarianTot[0].tot_damages +
+                        sector_summary.report.Table_1.agri_livestock.DmgLivestockTot[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt +
+                        sector_summary.report.Table_1.agri_irrigation.DmgIrrigationTot[0].damages) +
+                        (sector_summary.report.Table_1.agri_agrarian.LosAgrarianTot[0].tot_damages +
+                        sector_summary.report.Table_1.agri_livestock.LosLivestockTot[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt +
+                        sector_summary.report.Table_1.agri_irrigation.LosIrrigationTot[0].total_los) | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.AgrarianTotPub[0].tot_damages_pub +
-                        sector_summary.report.agri_livestock.LivestockTotPub[0].tot_damages_pub +
-                        sector_summary.report.agri_fisheries.FisheriesTotPub[0].tot_damages_pub +
-                        sector_summary.report.agri_irrigation.IrrigationTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.AgrarianTotPub[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_livestock.LivestockTotPub[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_fisheries.FisheriesTotPub[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_irrigation.IrrigationTotPub[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.AgrarianTotPvt[0].tot_damages_pub +
-                        sector_summary.report.agri_livestock.LivestockTotPvt[0].tot_damages_pvt +
-                        sector_summary.report.agri_fisheries.FisheriesTotPvt[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.AgrarianTotPvt[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_livestock.LivestockTotPvt[0].tot_damages_pvt +
+                        sector_summary.report.Table_1.agri_fisheries.FisheriesTotPvt[0].tot_damages_pvt | number">
                     </td>
                 </tr>
                 <tr height="20">
@@ -340,40 +340,40 @@
                         Agrarian
                     </td>
                     <td class="right"
-                         ng-bind="sector_summary.report.agri_agrarian.DmgAgrarianTot[0].tot_damages | number">
+                         ng-bind="sector_summary.report.Table_1.agri_agrarian.DmgAgrarianTot[0].tot_damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.LosAgrarianTot[0].tot_damages | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.LosAgrarianTot[0].tot_damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.DmgAgrarianTot[0].tot_damages +
-                        sector_summary.report.agri_agrarian.LosAgrarianTot[0].tot_damages | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.DmgAgrarianTot[0].tot_damages +
+                        sector_summary.report.Table_1.agri_agrarian.LosAgrarianTot[0].tot_damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.AgrarianTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.AgrarianTotPub[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_agrarian.AgrarianTotPvt[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_agrarian.AgrarianTotPvt[0].tot_damages_pub | number">
                     </td>
                 </tr>
                 <tr height="20">
                     <td height="20" class="tdpa">
                         Livestock
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_livestock.DmgLivestockTot[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_livestock.DmgLivestockTot[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_livestock.LosLivestockTot[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_livestock.LosLivestockTot[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_livestock.DmgLivestockTot[0].tot_damages_pub +
-                        sector_summary.report.agri_livestock.LosLivestockTot[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_livestock.DmgLivestockTot[0].tot_damages_pub +
+                        sector_summary.report.Table_1.agri_livestock.LosLivestockTot[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_livestock.LivestockTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_livestock.LivestockTotPub[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_livestock.LivestockTotPvt[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.agri_livestock.LivestockTotPvt[0].tot_damages_pvt | number">
                     </td>
                 </tr>
                 <tr height="20">
@@ -381,20 +381,20 @@
                         Fisheries
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt +
-                        sector_summary.report.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.agri_fisheries.DmgFisheriesTot[0].tot_damages_pvt +
+                        sector_summary.report.Table_1.agri_fisheries.LosFisheriesTot[0].los_year_2_pvt | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_fisheries.FisheriesTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_fisheries.FisheriesTotPub[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_fisheries.FisheriesTotPvt[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.agri_fisheries.FisheriesTotPvt[0].tot_damages_pvt | number">
                     </td>
                 </tr>
                 <tr height="20">
@@ -402,17 +402,17 @@
                         Irrigation
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_irrigation.DmgIrrigationTot[0].damages | number">
+                        ng-bind="sector_summary.report.Table_1.agri_irrigation.DmgIrrigationTot[0].damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_irrigation.LosIrrigationTot[0].total_los | number">
+                        ng-bind="sector_summary.report.Table_1.agri_irrigation.LosIrrigationTot[0].total_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_irrigation.DmgIrrigationTot[0].damages +
-                        sector_summary.report.agri_irrigation.LosIrrigationTot[0].total_los | number">
+                        ng-bind="sector_summary.report.Table_1.agri_irrigation.DmgIrrigationTot[0].damages +
+                        sector_summary.report.Table_1.agri_irrigation.LosIrrigationTot[0].total_los | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.agri_irrigation.IrrigationTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.agri_irrigation.IrrigationTotPub[0].tot_damages_pub | number">
                     </td>
                     <td>
                     </td>
@@ -422,20 +422,20 @@
                         Industry and Services
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.industry_services.DmgIndustryServicesTot[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.industry_services.DmgIndustryServicesTot[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.industry_services.LosIndustryServicesTot[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.industry_services.LosIndustryServicesTot[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.industry_services.DmgIndustryServicesTot[0].tot_damages_pub +
-                        sector_summary.report.industry_services.LosIndustryServicesTot[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.industry_services.DmgIndustryServicesTot[0].tot_damages_pub +
+                        sector_summary.report.Table_1.industry_services.LosIndustryServicesTot[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.industry_services.IndustryServicesTotPub[0].tot_damages_pub | number">
+                        ng-bind="sector_summary.report.Table_1.industry_services.IndustryServicesTotPub[0].tot_damages_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.industry_services.IndustryServicesTotPvt[0].tot_damages_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.industry_services.IndustryServicesTotPvt[0].tot_damages_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trhead">
@@ -443,20 +443,20 @@
                         Tourism
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.tourism.DmgTourismTot[0].tot_damages | number">
+                        ng-bind="sector_summary.report.Table_1.tourism.DmgTourismTot[0].tot_damages | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.tourism.LosTourismTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.tourism.LosTourismTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.tourism.DmgTourismTot[0].tot_damages +
-                        sector_summary.report.tourism.LosTourismTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.tourism.DmgTourismTot[0].tot_damages +
+                        sector_summary.report.Table_1.tourism.LosTourismTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.tourism.TourismTotPub[0].tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.tourism.TourismTotPub[0].tot_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.tourism.TourismTotPvt[0].tot_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.tourism.TourismTotPvt[0].tot_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trhead">
@@ -464,20 +464,20 @@
                         Mining
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.mining.DmgMiningTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.mining.DmgMiningTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.mining.LosMiningTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.mining.LosMiningTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.mining.DmgMiningTot[0].tot_dmg +
-                        sector_summary.report.mining.LosMiningTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.mining.DmgMiningTot[0].tot_dmg +
+                        sector_summary.report.Table_1.mining.LosMiningTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.mining.MiningTotPub[0].tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.mining.MiningTotPub[0].tot_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.mining.MiningTotPvt[0].tot_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.mining.MiningTotPvt[0].tot_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trheadc1">
@@ -500,19 +500,19 @@
                         Housing
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.housing.DmgHousingTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.housing.DmgHousingTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.housing.LosHousingTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.housing.LosHousingTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.housing.DmgHousingTot[0].tot_dmg +
-                        sector_summary.report.housing.LosHousingTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.housing.DmgHousingTot[0].tot_dmg +
+                        sector_summary.report.Table_1.housing.LosHousingTot[0].tot_loss | number">
                     </td>
                     <td>
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.housing.HousingTotPvt[0].tot_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.housing.HousingTotPvt[0].tot_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trhead">
@@ -520,20 +520,20 @@
                         Education
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.education.DmgEducationTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.education.DmgEducationTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.education.LosEducationTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.education.LosEducationTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.education.DmgEducationTot[0].tot_dmg +
-                        sector_summary.report.education.LosEducationTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.education.DmgEducationTot[0].tot_dmg +
+                        sector_summary.report.Table_1.education.LosEducationTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.education.EducationTotPub[0].tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.education.EducationTotPub[0].tot_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.education.EducationTotPvt[0].tot_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.education.EducationTotPvt[0].tot_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trhead">
@@ -541,20 +541,20 @@
                         Health
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.health.DmgHealthTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.health.DmgHealthTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.health.LosHealthTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.health.LosHealthTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.health.DmgHealthTot[0].tot_dmg +
-                        sector_summary.report.health.LosHealthTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.health.DmgHealthTot[0].tot_dmg +
+                        sector_summary.report.Table_1.health.LosHealthTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.health.HealthTotPub[0].tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.health.HealthTotPub[0].tot_pub | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.health.HealthTotPvt[0].tot_pvt | number">
+                        ng-bind="sector_summary.report.Table_1.health.HealthTotPvt[0].tot_pvt | number">
                     </td>
                 </tr>
                 <tr height="20" class="trheadc1">
@@ -577,17 +577,17 @@
                         Other Government Services
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.other_government.DmgOthGovSerTot[0].tot_dmg | number">
+                        ng-bind="sector_summary.report.Table_1.other_government.DmgOthGovSerTot[0].tot_dmg | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.other_government.LosOthGovSerTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.other_government.LosOthGovSerTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.other_government.DmgOthGovSerTot[0].tot_dmg +
-                        sector_summary.report.other_government.LosOthGovSerTot[0].tot_loss | number">
+                        ng-bind="sector_summary.report.Table_1.other_government.DmgOthGovSerTot[0].tot_dmg +
+                        sector_summary.report.Table_1.other_government.LosOthGovSerTot[0].tot_loss | number">
                     </td>
                     <td class="right"
-                        ng-bind="sector_summary.report.other_government.OthGovSerTotPub[0].tot_pub | number">
+                        ng-bind="sector_summary.report.Table_1.other_government.OthGovSerTotPub[0].tot_pub | number">
                     </td>
                     <td>
                     </td>

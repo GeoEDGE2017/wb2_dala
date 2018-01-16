@@ -2615,25 +2615,26 @@ def get_summary_data_by_sector(request):
     incident = com_data['incident']
     sectors = data['sectors']
 
-    sector_summary = {'report': {}}
+    sector_summary = {'report': {table_name: {}}}
 
     tables = settings.TABLE_PROPERTY_MAPPER['reports'][table_name]
 
     for sector in sectors:
         print sector, type(sector)
         for key, views in sector.iteritems():
-            sector_summary['report'][key] = {}
+            sector_summary['report'][table_name][key] = {}
 
             for view in views:
-                sector_summary['report'][key][view] = {}
+                sector_summary['report'][table_name][key][view] = {}
                 dl_session_model = apps.get_model('reports', view)
                 # should be checking against table name as well
 
                 try:
                     filterd_fields = tables[key][view]
-                    sector_summary['report'][key][view] = list(dl_session_model.objects.filter(incident=incident).values(*filterd_fields))
+                    sector_summary['report'][table_name][key][view] = list(dl_session_model.objects.filter(incident=incident).
+                                                                           values(*filterd_fields))
 
-                    print sector_summary['report'][key][view]
+                    print sector_summary['report'][table_name][key][view]
                 except Exception as e:
                     print 'error', e
 

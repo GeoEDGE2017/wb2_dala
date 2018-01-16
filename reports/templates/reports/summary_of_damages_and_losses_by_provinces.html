@@ -36,7 +36,8 @@
                 </td>
                 <td height="19" colspan="8" width="254">
                     <select id="select" name="incident" ng-model="incident"
-                            class="form-control" style="width:100%;font-weight:400;" ng-change="fetchProvinces();fetchSummaryData()" required>
+                            class="form-control" style="width:100%;font-weight:400;" ng-change="changedValue(incident);fetchProvinces();
+                            fetchSummaryData()" required>
                         <option value="" selected="true">Select an Incident</option>
                         {% for incident in incidents %}
                         <option value={{incident.id}}>
@@ -83,21 +84,21 @@
                         Private
                     </td>
                 </tr>
-                <tr height="20">
-                    <td height="20" class="tdpa">
-                        Province 1
+                <tr ng-repeat="(province,value) in provinceSumNat.report" height="20">
+                    <td ng-bind="province" height="20" class="tdpa">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="value.SumProvinceDmg[0].tot_dmg | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="value.SumProvinceLoss[0].tot_loss | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="value.SumProvinceDmg[0].tot_dmg + value.SumProvinceLoss[0].tot_loss | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="value.SumProvincePub[0].tot_pub | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="value.SumProvincePvt[0].tot_pvt | number">
                     </td>
                 </tr>
+
                 <tr height="20">
                     <td height="20" class="tdpa">
                         TOTAL

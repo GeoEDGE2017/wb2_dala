@@ -2,31 +2,36 @@
 {% block content %}
 {% load static %}
 <script>
-  $(document).ready(function() {
-  
-    var nicesx = $("#boxscroll").niceScroll({touchbehavior:false,cursorcolor:"#4679B2",cursoropacitymax:0.6,cursorwidth:8});
-    
-  });
-
+    $(document).ready(function() {
+        var nicesx = $("#boxscroll").niceScroll({touchbehavior:false,cursorcolor:"#4679B2",cursoropacitymax:0.6,cursorwidth:8});
+    });
 </script>
 <!-- Main content -->
 <main class="main" ng-app="bsNopoplAgrbActvApp" ng-controller="bsNopoplAgrbActvController">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'dashboard:index' %}">Dashboard</a>
+        <li class="breadcrumb-item">
+            <a href="{% url 'dashboard:index' %}">Dashboard</a>
         </li>
-        <li class="breadcrumb-item"><a href="{% url 'dashboard:agri_agrarian_main' %}">Agri Agrarian Sector</a>
+        <li class="breadcrumb-item">
+            <a href="{% url 'dashboard:agri_agrarian_main' %}">
+                Agri Agrarian Sector
+            </a>
         </li>
-        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 1. Baseline Information on Areas Cultivated and Number of People in Agrarian Activities</span>
+        <li class="breadcrumb-item active">
+            <span class="label label-success" style="font-size:14px;">
+                Table 1. Baseline Information on Areas Cultivated and Number of People in Agrarian Activities
+            </span>
         </li>
-        <li style="float:right;"><a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}"
-                                    target="_blank" style="font-size: 18px;font-weight:bold;text-decoration: none;"
-                                    class="icon-info" data-toggle="tooltip" title="Veiw Document"></a></li>
+        <li style="float:right;">
+            <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}" target="_blank" style="font-size: 18px;font-weight:bold;text-decoration: none;"
+                class="icon-info" data-toggle="tooltip" title="Veiw Document">
+            </a>
+        </li>
     </ol>
     <div class="container-fluid" ng-form name="form_bs_nopopl_agrb_actv">
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane active" id="step1">
-            
                 <table class="table table-bordered">
                     <colgroup>
                         <col width="249"/>
@@ -36,25 +41,25 @@
                         <col width="112"/>
                     </colgroup>
                     <tbody>
-                    <tr style="background:#fff;border:1px solid #fff;text-align:center;">
-                        <td style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
-                        </td>
-                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <span class="arrow_box"
-                                  ng-show="submitted && form_bs_nopopl_agrb_actv.district.$error.required">
-                                Please Select District
-                            </span>
-                        </td>
-                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                        </td>
-                        <td style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <span class="arrow_box"
-                                  ng-show="submitted && form_bs_nopopl_agrb_actv.baselineDate.$error.required">
-                                Please Select Date
-                            </span>
-                        </td>
-                    </tr>
-                    <tr class="trhead1" height="19">
+                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <span class="arrow_box"
+                                      ng-show="submitted && form_bs_nopopl_agrb_actv.district.$error.required">
+                                    Please Select District
+                                </span>
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <span class="arrow_box"
+                                      ng-show="submitted && form_bs_nopopl_agrb_actv.baselineDate.$error.required">
+                                    Please Select Date
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="trhead1" height="19">
                         <td width="249" style="padding-left:5px;" height="19">
                             District:
                         </td>
@@ -84,8 +89,8 @@
                         <span ng-bind="user_id={{user.id}}" style="display:none;"></span>
                     </tr>
                     </tbody>
-                    </table>
-                    <table class="table table-bordered">
+                </table>
+                <table class="table table-bordered">
                      <colgroup>
                         <col width="249"/>
                         <col width="148"/>
@@ -94,427 +99,420 @@
                         <col width="112"/>
                     </colgroup>
                     <tbody>
-                    <tr class="trheadc1" height="19">
-                        <td rowspan="2" width="249" height="70">
-                            Sub-sector
-                        </td>
-                        <td rowspan="2" width="148">
-                            Areas Cultivated (Acre)
-                        </td>
-                        <td rowspan="2" width="121">
-                            Average Value of Land (LKR/Acre)
-                        </td>
-                        <td colspan="3" width="346">
-                            Number of Farmers/Growers
-                        </td>
-                    </tr>
-                    <tr class="trsubc" height="51">
-                        <td width="117" height="51">
-                            Families
-                        </td>
-                        <td width="117">
-                            Male
-                        </td>
-                        <td width="112">
-                            Female
-                        </td>
-                    </tr>
+                        <tr class="trheadc1" height="19">
+                            <td rowspan="2" width="249" height="70">
+                                Sub-sector
+                            </td>
+                            <td rowspan="2" width="148">
+                                Areas Cultivated (Acre)
+                            </td>
+                            <td rowspan="2" width="121">
+                                Average Value of Land (LKR/Acre)
+                            </td>
+                            <td colspan="3" width="346">
+                                Number of Farmers/Growers
+                            </td>
+                        </tr>
+                        <tr class="trsubc" height="51">
+                            <td width="117" height="51">
+                                Families
+                            </td>
+                            <td width="117">
+                                Male
+                            </td>
+                            <td width="112">
+                                Female
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <div id="boxscroll" style="height:400px;overflow:auto;">
                     <table class="table table-bordered">
-                         <colgroup>
-                        <col width="249"/>
-                        <col width="148"/>
-                        <col width="121"/>
-                        <col width="117" />
-                        <col width="112"/>
-                    </colgroup>
-                    <tbody>
-                        <tr class="trheadc" height="19">
-                            <td width="249" height="19">
-                                Seasonal Crops
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <!--Seasonal Crops-->
-                        <tr height="19"
-                            ng-repeat="bcagSeasonalCrops in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagSeasonalCrops">
-                            <td class="tdpa" width="249" height="19" ng-bind="bcagSeasonalCrops.seasonal_crops"
-                                ng-if="$index < 4">
-                            </td>
-                            <td width="98" ng-if="$index > 3">
-                                {% verbatim %}
-                                <button id="delete" ng-click="removeItem('BcagSeasonalCrops', $index)"
-                                        class="btn btn-sm btn-danger btn-circle">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                <input style="width:80%;float:right;" name="bcagSeasonalCrops_{{$index}}"
-                                       ng-model="bcagSeasonalCrops.seasonal_crops"
-                                       popover="This field is required"
-                                       popover-toggle="form_bs_nopopl_agrb_actv['bcagSeasonalCrops_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagSeasonalCrops_' + $index].$valid"
-                                       popover-placement="top" required
-                                       type="text"
-                                       class="form-control input-md">
-                                {% endverbatim %}
-                            </td>
-                            <td width="148">
-                                <input id="textinput" name="textinput" type="number" min="0" placeholder=""
-                                       class="form-control input-md" ng-model="bcagSeasonalCrops.areas_cultivated">
-                            </td>
-                            <td width="121">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagSeasonalCrops.avg_val_land">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagSeasonalCrops.num_families">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagSeasonalCrops.num_male">
-                            </td>
-                            <td width="112">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagSeasonalCrops.num_female">
-                            </td>
-                        </tr>
-                        <tr height="21">
-                            <td class="tdpa" width="249" height="21">
-                                Other Seasonal Crops
-                                <button ng-click="insertAsset('BcagSeasonalCrops')"
-                                        class="btn btn-sm btn-info btn-circle" id="insert">
-                                    <span class="fa fa-plus"></span>
-                                </button>
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <tr class="trheadc" height="19">
-                            <td width="249" height="19">
-                                Plantation Crops
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <!--Plantation Crops-->
-                        <tr height="19"
-                            ng-repeat="bcagPlantnCrops in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagPlantnCrops">
-                            <td class="tdpa" width="249" height="19" ng-bind="bcagPlantnCrops.plantn_crops"
-                                ng-if="$index < 3">
-                            </td>
-                            <td width="98" ng-if="$index > 2">
-                                {% verbatim %}
-                                <button id="delete" ng-click="removeItem('BcagPlantnCrops', $index)"
-                                        class="btn btn-sm btn-danger btn-circle">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                <input style="width:80%;float:right;" name="bcagPlantnCrops_{{$index}}"
-                                       ng-model="bcagPlantnCrops.plantn_crops"
-                                       popover="This field is required"
-                                       popover-toggle="form_bs_nopopl_agrb_actv['bcagPlantnCrops_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagPlantnCrops_' + $index].$valid"
-                                       popover-placement="top" required
-                                       type="text"
-                                       class="form-control input-md">
-                                {% endverbatim %}
-                            </td>
-                            <td width="148">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagPlantnCrops.areas_cultivated">
-                            </td>
-                            <td width="121">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagPlantnCrops.avg_val_land">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagPlantnCrops.num_families">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagPlantnCrops.num_male">
-                            </td>
-                            <td width="112">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagPlantnCrops.num_female">
-                            </td>
-                        </tr>
-                        <tr height="21">
-                            <td class="tdpa" width="249" height="21">
-                                Other Plantation Crops
-                                <button ng-click="insertAsset('BcagPlantnCrops')" class="btn btn-sm btn-info btn-circle"
-                                        id="insert">
-                                    <span class="fa fa-plus"></span>
-                                </button>
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <tr class="trheadc" height="19">
-                            <td width="249" height="19">
-                                Export Crops
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <!--Export Crops-->
-                        <tr height="19"
-                            ng-repeat="bcagExportCrops in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagExportCrops">
-                            <td class="tdpa" width="249" height="19" ng-bind="bcagExportCrops.export_crops"
-                                ng-if="$index < 3">
-                            </td>
-                            <td width="98" ng-if="$index > 2">
-                                {% verbatim %}
-                                <button id="delete" ng-click="removeItem('BcagExportCrops', $index)"
-                                        class="btn btn-sm btn-danger btn-circle">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                <input style="width:80%;float:right;" name="bcagExportCrops_{{$index}}"
-                                       ng-model="bcagExportCrops.export_crops"
-                                       popover="This field is required"
-                                       popover-toggle="form_bs_nopopl_agrb_actv['bcagExportCrops_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagExportCrops_' + $index].$valid"
-                                       popover-placement="top" required
-                                       type="text"
-                                       class="form-control input-md">
-                                {% endverbatim %}
-                            </td>
-                            <td width="148">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagExportCrops.areas_cultivated">
-                            </td>
-                            <td width="121">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagExportCrops.avg_val_land">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagExportCrops.num_families">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagExportCrops.num_male">
-                            </td>
-                            <td width="112">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagExportCrops.num_female">
-                            </td>
-                        </tr>
-                        <tr height="19">
-                            <td class="tdpa" width="249" height="19">
-                                Others
-                                <button ng-click="insertAsset('BcagExportCrops')" class="btn btn-sm btn-info btn-circle"
-                                        id="insert">
-                                    <span class="fa fa-plus"></span>
-                                </button>
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <tr class="trheadc" height="19">
-                            <td width="249" height="19">
-                                Forestry
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <!--Forestry-->
-                        <tr height="19" ng-repeat="bcagForestry in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagForestry">
-                            <td class="tdpa" width="249" height="19" ng-bind="bcagForestry.forestry" ng-if="$index < 1">
-                            </td>
-                            <td width="98" ng-if="$index > 0">
-                                {% verbatim %}
-                                <button id="delete" ng-click="removeItem('BcagForestry', $index)"
-                                        class="btn btn-sm btn-danger btn-circle">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                <input style="width:80%;float:right;" name="bcagForestry_{{$index}}"
-                                       ng-model="bcagForestry.forestry"
-                                       popover="This field is required"
-                                       popover-toggle="form_bs_nopopl_agrb_actv['bcagForestry_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagForestry_' + $index].$valid"
-                                       popover-placement="top" required
-                                       type="text"
-                                       class="form-control input-md">
-                                {% endverbatim %}
-                            </td>
-                            <td width="148">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagForestry.areas_cultivated">
-                            </td>
-                            <td width="121">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagForestry.avg_val_land">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagForestry.num_families">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagForestry.num_male">
-                            </td>
-                            <td width="112">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagForestry.num_female">
-                            </td>
-                        </tr>
-                        <tr height="19">
-                            <td class="tdpa" width="249" height="19">
-                                Others
-                                <button ng-click="insertAsset('BcagForestry')" class="btn btn-sm btn-info btn-circle"
-                                        id="insert">
-                                    <span class="fa fa-plus"></span>
-                                </button>
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <tr class="trheadc" height="21">
-                            <td width="249" height="21">
-                                Others Products
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
-                        <tr height="19" ng-repeat="bcagOther in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagOther">
-                            <td class="tdpa" width="249" height="19" ng-bind="bcagOther.other_products"
-                                ng-if="$index < 1">
-                            </td>
-                            <td width="98" ng-if="$index > 0">
-                                {% verbatim %}
-                                <button id="delete" ng-click="removeItem('BcagOther', $index)"
-                                        class="btn btn-sm btn-danger btn-circle">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                <input style="width:80%;float:right;" name="bcagOther_{{$index}}"
-                                       ng-model="bcagOther.other_products"
-                                       popover="This field is required"
-                                       popover-toggle="form_bs_nopopl_agrb_actv['bcagOther_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagOther_' + $index].$valid"
-                                       popover-placement="top" required
-                                       type="text"
-                                       class="form-control input-md">
-                                {% endverbatim %}
-                            </td>
-                            <td width="148">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagOther.areas_cultivated">
-                            </td>
-                            <td width="121">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagOther.avg_val_land">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagOther.num_families">
-                            </td>
-                            <td width="117">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagOther.num_male">
-                            </td>
-                            <td width="112">
-                                <input id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md" ng-model="bcagOther.num_female">
-                            </td>
-                        </tr>
-                        <tr height="19">
-                            <td class="tdpa" width="249" height="19">
-                                Others
-                                <button ng-click="insertAsset('BcagOther')" class="btn btn-sm btn-info btn-circle"
-                                        id="insert">
-                                    <span class="fa fa-plus"></span>
-                                </button>
-                            </td>
-                            <td width="148">
-                            </td>
-                            <td width="121">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="117">
-                            </td>
-                            <td width="112">
-                            </td>
-                        </tr>
+                        <colgroup>
+                            <col width="249"/>
+                            <col width="148"/>
+                            <col width="121"/>
+                            <col width="117" />
+                            <col width="112"/>
+                        </colgroup>
+                        <tbody>
+                            <tr class="trheadc" height="19">
+                                <td width="249" height="19">
+                                    Seasonal Crops
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <!--Seasonal Crops-->
+                            <tr height="19"
+                                ng-repeat="bcagSeasonalCrops in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagSeasonalCrops">
+                                <td class="tdpa" width="249" height="19" ng-bind="bcagSeasonalCrops.seasonal_crops"
+                                    ng-if="$index < 4">
+                                </td>
+                                <td width="98" ng-if="$index > 3">
+                                    {% verbatim %}
+                                    <button id="delete" ng-click="removeItem('BcagSeasonalCrops', $index)"
+                                            class="btn btn-sm btn-danger btn-circle">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input style="width:80%;float:right;" name="bcagSeasonalCrops_{{$index}}"
+                                           ng-model="bcagSeasonalCrops.seasonal_crops"
+                                           popover="This field is required"
+                                           popover-toggle="form_bs_nopopl_agrb_actv['bcagSeasonalCrops_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagSeasonalCrops_' + $index].$valid"
+                                           popover-placement="top" required type="text" class="form-control input-md">
+                                    {% endverbatim %}
+                                </td>
+                                <td width="148">
+                                    <input id="textinput" name="textinput" type="number" min="0" placeholder=""
+                                           class="form-control input-md" ng-model="bcagSeasonalCrops.areas_cultivated">
+                                </td>
+                                <td width="121">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagSeasonalCrops.avg_val_land">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagSeasonalCrops.num_families">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagSeasonalCrops.num_male">
+                                </td>
+                                <td width="112">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagSeasonalCrops.num_female">
+                                </td>
+                            </tr>
+                            <tr height="21">
+                                <td class="tdpa" width="249" height="21">
+                                    Other Seasonal Crops
+                                    <button ng-click="insertAsset('BcagSeasonalCrops')"
+                                            class="btn btn-sm btn-info btn-circle" id="insert">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <tr class="trheadc" height="19">
+                                <td width="249" height="19">
+                                    Plantation Crops
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <!--Plantation Crops-->
+                            <tr height="19"
+                                ng-repeat="bcagPlantnCrops in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagPlantnCrops">
+                                <td class="tdpa" width="249" height="19" ng-bind="bcagPlantnCrops.plantn_crops"
+                                    ng-if="$index < 3">
+                                </td>
+                                <td width="98" ng-if="$index > 2">
+                                    {% verbatim %}
+                                    <button id="delete" ng-click="removeItem('BcagPlantnCrops', $index)"
+                                            class="btn btn-sm btn-danger btn-circle">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input style="width:80%;float:right;" name="bcagPlantnCrops_{{$index}}"
+                                           ng-model="bcagPlantnCrops.plantn_crops"
+                                           popover="This field is required"
+                                           popover-toggle="form_bs_nopopl_agrb_actv['bcagPlantnCrops_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagPlantnCrops_' + $index].$valid"
+                                           popover-placement="top" required
+                                           type="text"
+                                           class="form-control input-md">
+                                    {% endverbatim %}
+                                </td>
+                                <td width="148">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagPlantnCrops.areas_cultivated">
+                                </td>
+                                <td width="121">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagPlantnCrops.avg_val_land">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagPlantnCrops.num_families">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagPlantnCrops.num_male">
+                                </td>
+                                <td width="112">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagPlantnCrops.num_female">
+                                </td>
+                            </tr>
+                            <tr height="21">
+                                <td class="tdpa" width="249" height="21">
+                                    Other Plantation Crops
+                                    <button ng-click="insertAsset('BcagPlantnCrops')" class="btn btn-sm btn-info btn-circle"
+                                            id="insert">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <tr class="trheadc" height="19">
+                                <td width="249" height="19">
+                                    Export Crops
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <!--Export Crops-->
+                            <tr height="19"
+                                ng-repeat="bcagExportCrops in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagExportCrops">
+                                <td class="tdpa" width="249" height="19" ng-bind="bcagExportCrops.export_crops"
+                                    ng-if="$index < 3">
+                                </td>
+                                <td width="98" ng-if="$index > 2">
+                                    {% verbatim %}
+                                    <button id="delete" ng-click="removeItem('BcagExportCrops', $index)"
+                                            class="btn btn-sm btn-danger btn-circle">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input style="width:80%;float:right;" name="bcagExportCrops_{{$index}}"
+                                           ng-model="bcagExportCrops.export_crops"
+                                           popover="This field is required"
+                                           popover-toggle="form_bs_nopopl_agrb_actv['bcagExportCrops_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagExportCrops_' + $index].$valid"
+                                           popover-placement="top" required type="text" class="form-control input-md">
+                                    {% endverbatim %}
+                                </td>
+                                <td width="148">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagExportCrops.areas_cultivated">
+                                </td>
+                                <td width="121">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagExportCrops.avg_val_land">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagExportCrops.num_families">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagExportCrops.num_male">
+                                </td>
+                                <td width="112">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagExportCrops.num_female">
+                                </td>
+                            </tr>
+                            <tr height="19">
+                                <td class="tdpa" width="249" height="19">
+                                    Others
+                                    <button ng-click="insertAsset('BcagExportCrops')" class="btn btn-sm btn-info btn-circle"
+                                            id="insert">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <tr class="trheadc" height="19">
+                                <td width="249" height="19">
+                                    Forestry
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <!--Forestry-->
+                            <tr height="19" ng-repeat="bcagForestry in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagForestry">
+                                <td class="tdpa" width="249" height="19" ng-bind="bcagForestry.forestry" ng-if="$index < 1">
+                                </td>
+                                <td width="98" ng-if="$index > 0">
+                                    {% verbatim %}
+                                    <button id="delete" ng-click="removeItem('BcagForestry', $index)"
+                                            class="btn btn-sm btn-danger btn-circle">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input style="width:80%;float:right;" name="bcagForestry_{{$index}}"
+                                           ng-model="bcagForestry.forestry"
+                                           popover="This field is required"
+                                           popover-toggle="form_bs_nopopl_agrb_actv['bcagForestry_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagForestry_' + $index].$valid"
+                                           popover-placement="top" required
+                                           type="text"
+                                           class="form-control input-md">
+                                    {% endverbatim %}
+                                </td>
+                                <td width="148">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagForestry.areas_cultivated">
+                                </td>
+                                <td width="121">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagForestry.avg_val_land">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagForestry.num_families">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagForestry.num_male">
+                                </td>
+                                <td width="112">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagForestry.num_female">
+                                </td>
+                            </tr>
+                            <tr height="19">
+                                <td class="tdpa" width="249" height="19">
+                                    Others
+                                    <button ng-click="insertAsset('BcagForestry')" class="btn btn-sm btn-info btn-circle"
+                                            id="insert">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <tr class="trheadc" height="21">
+                                <td width="249" height="21">
+                                    Others Products
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
+                            <tr height="19" ng-repeat="bcagOther in bsNopoplAgrbActv.agri_agrarian.Table_1.BcagOther">
+                                <td class="tdpa" width="249" height="19" ng-bind="bcagOther.other_products"
+                                    ng-if="$index < 1">
+                                </td>
+                                <td width="98" ng-if="$index > 0">
+                                    {% verbatim %}
+                                    <button id="delete" ng-click="removeItem('BcagOther', $index)"
+                                            class="btn btn-sm btn-danger btn-circle">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input style="width:80%;float:right;" name="bcagOther_{{$index}}"
+                                           ng-model="bcagOther.other_products"
+                                           popover="This field is required"
+                                           popover-toggle="form_bs_nopopl_agrb_actv['bcagOther_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bcagOther_' + $index].$valid"
+                                           popover-placement="top" required
+                                           type="text"
+                                           class="form-control input-md">
+                                    {% endverbatim %}
+                                </td>
+                                <td width="148">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagOther.areas_cultivated">
+                                </td>
+                                <td width="121">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagOther.avg_val_land">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagOther.num_families">
+                                </td>
+                                <td width="117">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagOther.num_male">
+                                </td>
+                                <td width="112">
+                                    <input id="textinput" name="textinput" type="number" placeholder=""
+                                           class="form-control input-md" ng-model="bcagOther.num_female">
+                                </td>
+                            </tr>
+                            <tr height="19">
+                                <td class="tdpa" width="249" height="19">
+                                    Others
+                                    <button ng-click="insertAsset('BcagOther')" class="btn btn-sm btn-info btn-circle"
+                                            id="insert">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </td>
+                                <td width="148">
+                                </td>
+                                <td width="121">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="117">
+                                </td>
+                                <td width="112">
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-
-
                     <br>
                     <div class="pull-right">
                         <br>
-
                         <button id="clearbtn" type="button" ng-click="clear()" class="btn btn-info">
                             Clear
                         </button>
@@ -550,15 +548,12 @@
                 </div>
             </div>
         </div>
-
-
         <div class="col-md-12">
             <div class="modal fade" id="modal-container-218029" role="dialog" style="width:50%;margin:0 auto;"
                  aria-hidden="true">
                 <div class="modal-dialog" style="width:50%;">
                     <div class="modal-content">
                         <div class="modal-header">
-
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                 ×
                             </button>
@@ -573,7 +568,6 @@
                                 <div class="col-md-10">
                                     <input id="textinput" name="textinput" type="text" placeholder=""
                                            class="form-control input-md">
-
                                 </div>
                             </div>
                         </div>
@@ -588,19 +582,10 @@
                             </button>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
     </div>
-
-    </div>
-
     <!-- /.conainer-fluid -->
 </main>
-
-
 {% endblock content %}

@@ -193,7 +193,7 @@ app.controller('bsTelcomCmpnysController', function($scope, $http) {
                 method: "POST",
                 url: '/bs_fetch_edit_data',
                 data: angular.toJson({
-                    'table_name':  'Table_1',
+                    'table_name': 'Table_1',
                     'sector': 'telecommunication',
                     'com_data': {
                         'district': $scope.district,

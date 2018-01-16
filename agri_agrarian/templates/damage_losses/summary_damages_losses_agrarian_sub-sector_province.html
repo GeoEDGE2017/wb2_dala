@@ -4,14 +4,14 @@
 <!-- Main content -->
 <style>
     .right {text-align:right;}
-
-
 </style>
 <main class="main" ng-app="dlSummeryAgProApp" ng-controller="DlSummeryAgProController">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{% url 'dashboard:index' %}">Dashboard</a>
+            <a href="{% url 'dashboard:index' %}">
+                Dashboard
+            </a>
         </li>
         <li class="breadcrumb-item">
             <a href="{% url 'dashboard:agri_agrarian_main' %}">
@@ -106,31 +106,31 @@
                                 </td>
                             </tr>
                             <tr class="trheadc1" height="20">
-                            <td width="148" height="20">
-                                Public
-                            </td>
-                            <td width="121" style="width:11%;">
-                                Private
-                            </td>
-                            <td width="117" style="width:12%;">
-                                Public
-                            </td>
-                            <td width="117" style="width:12.3%;">
-                                Private
-                            </td>
-                            <td width="112" style="width:9.8%;">
-                                Public
-                            </td>
-                            <td width="99" style="width:9.8%;">
-                                Private
-                            </td>
-                            <td width="85" style="width:9.2%;">
-                                Public
-                            </td>
-                            <td width="85" style="width:6.5%;">
-                                Private
-                            </td>
-                        </tr>
+                                <td width="148" height="20">
+                                    Public
+                                </td>
+                                <td width="121" style="width:11%;">
+                                    Private
+                                </td>
+                                <td width="117" style="width:12%;">
+                                    Public
+                                </td>
+                                <td width="117" style="width:12.3%;">
+                                    Private
+                                </td>
+                                <td width="112" style="width:9.8%;">
+                                    Public
+                                </td>
+                                <td width="99" style="width:9.8%;">
+                                    Private
+                                </td>
+                                <td width="85" style="width:9.2%;">
+                                    Public
+                                </td>
+                                <td width="85" style="width:6.5%;">
+                                    Private
+                                </td>
+                            </tr>
                         </tbody>
                         <br>
                         <div class="pull-right">
@@ -138,31 +138,31 @@
                         </div>
                         <tbody ng-repeat="(key, value) in dlAgriAgrarianPro.agri_agrarian.Table_9" ng-if="!checkIfNull()">
                             <tr height="20" ng-init="getTotal($index,key);">
-                            <td ng-bind="key" class="tdpa" width="253" height="19">
-                            </td>
-                            <td class="right" width="147" ng-bind="value.DsorDmgPubProvince[0].damages">
-                            </td>
-                            <td class="right" width="151" ng-bind="value.DsorDmgPvtProvince[0].damages">
-                            </td>
-                            <td class="right" width="165" ng-bind="value.DsorLosYear1Province[0].dmg_los_pub">
-                            </td>
-                            <td class="right" width="170" ng-bind="value.DsorLosYear1Province[0].dmg_los_pvt">
-                            </td>
-                            <td class="right" width="135" ng-bind="value.DsorLosYear2Province[0].dmg_los_pub">
-                            </td>
-                            <td class="right" width="133" ng-bind="value.DsorLosYear2Province[0].dmg_los_pvt">
-                            </td>
-                            <td class="right" width="126"
-                                ng-bind="value.DsorDmgPubProvince[0].damages +
-                                        value.DsorLosYear1Province[0].dmg_los_pub +
-                                        value.DsorLosYear2Province[0].dmg_los_pub ">
-                            </td>
-                            <td class="right" width="85"
-                                ng-bind="value.DsorDmgPvtProvince[0].damages +
-                                        value.DsorLosYear1Province[0].dmg_los_pvt +
-                                        value.DsorLosYear2Province[0].dmg_los_pvt ">
-                            </td>
-                        </tr>
+                                <td ng-bind="key" class="tdpa" width="253" height="19">
+                                </td>
+                                <td class="right" width="147" ng-bind="value.DsorDmgPubProvince[0].damages">
+                                </td>
+                                <td class="right" width="151" ng-bind="value.DsorDmgPvtProvince[0].damages">
+                                </td>
+                                <td class="right" width="165" ng-bind="value.DsorLosYear1Province[0].dmg_los_pub">
+                                </td>
+                                <td class="right" width="170" ng-bind="value.DsorLosYear1Province[0].dmg_los_pvt">
+                                </td>
+                                <td class="right" width="135" ng-bind="value.DsorLosYear2Province[0].dmg_los_pub">
+                                </td>
+                                <td class="right" width="133" ng-bind="value.DsorLosYear2Province[0].dmg_los_pvt">
+                                </td>
+                                <td class="right" width="126"
+                                    ng-bind="value.DsorDmgPubProvince[0].damages +
+                                            value.DsorLosYear1Province[0].dmg_los_pub +
+                                            value.DsorLosYear2Province[0].dmg_los_pub ">
+                                </td>
+                                <td class="right" width="85"
+                                    ng-bind="value.DsorDmgPvtProvince[0].damages +
+                                            value.DsorLosYear1Province[0].dmg_los_pvt +
+                                            value.DsorLosYear2Province[0].dmg_los_pvt ">
+                                </td>
+                            </tr>
                             <!--</div>-->
                         </tbody>
                         <tbody ng-if="!checkIfNull()">

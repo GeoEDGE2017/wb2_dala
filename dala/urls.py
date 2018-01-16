@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^bs_save_data_with_firm', views.bs_save_data_with_firm, name='bs_save_data_with_firm'),
     url(r'^bs_save_data_with_organization', views.bs_save_data_with_organization, name='bs_save_data_with_organization'),
     url(r'^get_summary_data_by_sector', views.get_summary_data_by_sector, name='get_summary_data_by_sector'),
+    url(r'^get1_summary_data_by_sector_for_provinces', views.get1_summary_data_by_sector_for_provinces, name='get1_summary_data_by_sector_for_provinces'),
 
     url(r'^fetch_trans_rail_losses', views.fetch_trans_rail_losses, name='fetch_trans_rail_losses'),
     url(r'^edit_school', views.edit_school, name='edit_school'),
@@ -149,9 +150,4 @@ urlpatterns = [
 
     # test
     # url(r'^transport_summary/', include('transport_summary.urls', namespace='transport_summary')),
-
-
-
-
-
 ]

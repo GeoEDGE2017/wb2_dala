@@ -161,7 +161,7 @@ DATABASES = {
         #     'options': '-c search_path=industry_services'
         # },
 
-        'NAME': 'dala_new',
+        'NAME': 'dala_2018_01_05',
         #'NAME': 'dala_2017_12_14',
         'USER': 'postgres',
     },
@@ -3303,109 +3303,119 @@ TABLE_PROPERTY_MAPPER = {
         },
     },
     'reports': {
-        'health': {
-            'DmgHealthTot': ['tot_dmg'],
-            'HealthTotPub': ['tot_pub'],
-            'HealthTotPvt': ['tot_pvt'],
-            'LosHealthTot': ['tot_loss'],
+        'Table_1': {
+            'health': {
+                'DmgHealthTot': ['tot_dmg'],
+                'HealthTotPub': ['tot_pub'],
+                'HealthTotPvt': ['tot_pvt'],
+                'LosHealthTot': ['tot_loss'],
+            },
+            'education': {
+                'DmgEducationTot': ['tot_dmg'],
+                'EducationTotPub': ['tot_pub'],
+                'EducationTotPvt': ['tot_pvt'],
+                'LosEducationTot': ['tot_dmg'],
+            },
+            'mining': {
+                'DmgMiningTot': ['tot_dmg'],
+                'LosMiningTot': ['tot_loss'],
+                'MiningTotPub': ['tot_pub'],
+                'MiningTotPvt': ['tot_pvt'],
+            },
+            'other_government': {
+                'DmgOthGovSerTot': ['tot_dmg'],
+                'LosOthGovSerTot': ['tot_loss'],
+                'OthGovSerTotPub': ['tot_pub'],
+            },
+            'transport_air': {
+                'AirTransportationTotPub': ['tot_destroyed'],
+                'AirTransportationTotPvt': ['tot_destroyed'],
+                'DmgAirTransportationTot': ['tot_destroyed'],
+                'LosAirTransportationTot': ['tot_los'],
+            },
+            'transport_land': {
+                'DmgLandTransportationTot': ['damages'],
+                'LandTransportationTotPub': ['damages'],
+                'LandTransportationTotPvt': ['tot_damages_pvt'],
+                'LosLandTransportationTot': ['loss'],
+            },
+            'transport_rail': {
+                'DmgRailTransportationTot': ['tot_damages'],
+                'LosRailTransportationTot': ['tot_los'],
+                'RailTransportationTotPub': ['dmg_tot_pub'],
+            },
+            'transport_water': {
+                'DmgWaterTransportationTot': ['tot_destroyed'],
+                'LosWaterTransportationTot': ['tot_los'],
+                'WaterTransportationTotPub': ['tot_destroyed'],
+                'WaterTransportationTotPvt': ['tot_destroyed'],
+            },
+            'agri_agrarian': {
+                'AgrarianTotPub': ['tot_damages_pub'],
+                'AgrarianTotPvt': ['tot_damages_pub'],
+                'DmgAgrarianTot': ['tot_damages'],
+                'LosAgrarianTot': ['tot_damages']
+            },
+            'agri_fisheries': {
+                'DmgFisheriesTot': ['tot_damages_pvt'],
+                'FisheriesTotPub': ['tot_damages_pub'],
+                'FisheriesTotPvt': ['tot_damages_pvt'],
+                'LosFisheriesTot': ['los_year_2_pvt']
+            },
+            'agri_irrigation': {
+                'DmgIrrigationTot': ['damages'],
+                'IrrigationTotPub': ['tot_damages_pub'],
+                'LosIrrigationTot': ['total_los']
+            },
+            'agri_livestock': {
+                'DmgLivestockTot': ['tot_damages_pub'],
+                'LivestockTotPub': ['tot_damages_pub'],
+                'LivestockTotPvt': ['tot_damages_pvt'],
+                'LosLivestockTot': ['tot_damages_pub']
+            },
+            'housing': {
+                'DmgHousingTot': ['tot_dmg'],
+                'LosHousingTot': ['tot_loss'],
+                'HousingTotPvt': ['tot_pvt'],
+            },
+            'industry_services': {
+                'DmgIndustryServicesTot': ['tot_damages_pub'],
+                'IndustryServicesTotPub': ['tot_damages_pub'],
+                'IndustryServicesTotPvt': ['tot_damages_pvt'],
+                'LosIndustryServicesTot': ['tot_damages_pub'],
+            },
+            'power_supply': {
+                'DmgPowerSupplyTot': ['tot_destroyed'],
+                'LosPowerSupplyTot': ['tot_los'],
+                'PowerSupplyTotPub': ['dmg_tot_pub'],
+                'PowerSupplyTotPvt': ['dmg_tot_pvt'],
+            },
+            'telecommunication': {
+                'CommunicationTotPub': ['tot_damages_pub'],
+                'CommunicationTotPvt': ['tot_damages_pvt'],
+                'DmgCommunicationTot': ['tot_damages'],
+                'LosCommunicationTot': ['tot_los'],
+            },
+            'tourism': {
+                'DmgTourismTot': ['tot_damages'],
+                'LosTourismTot': ['tot_loss'],
+                'TourismTotPub': ['tot_pub'],
+                'TourismTotPvt': ['tot_pvt'],
+            },
+            'water_supply': {
+                'DmgWaterSupplyTot': ['dmg_tot_pub'],
+                'LosWaterSupplyTot': ['tot_los'],
+                'WaterSupplyTotPub': ['tot_dmg_pub'],
+            },
         },
-        'education': {
-            'DmgEducationTot': ['tot_dmg'],
-            'EducationTotPub': ['tot_pub'],
-            'EducationTotPvt': ['tot_pvt'],
-            'LosEducationTot': ['tot_dmg'],
-        },
-        'mining': {
-            'DmgMiningTot': ['tot_dmg'],
-            'LosMiningTot': ['tot_loss'],
-            'MiningTotPub': ['tot_pub'],
-            'MiningTotPvt': ['tot_pvt'],
-        },
-        'other_government': {
-            'DmgOthGovSerTot': ['tot_dmg'],
-            'LosOthGovSerTot': ['tot_loss'],
-            'OthGovSerTotPub': ['tot_pub'],
-        },
-        'transport_air': {
-            'AirTransportationTotPub': ['tot_destroyed'],
-            'AirTransportationTotPvt': ['tot_destroyed'],
-            'DmgAirTransportationTot': ['tot_destroyed'],
-            'LosAirTransportationTot': ['tot_los'],
-        },
-        'transport_land': {
-            'DmgLandTransportationTot': ['damages'],
-            'LandTransportationTotPub': ['damages'],
-            'LandTransportationTotPvt': ['tot_damages_pvt'],
-            'LosLandTransportationTot': ['loss'],
-        },
-        'transport_rail': {
-            'DmgRailTransportationTot': ['tot_damages'],
-            'LosRailTransportationTot': ['tot_los'],
-            'RailTransportationTotPub': ['dmg_tot_pub'],
-        },
-        'transport_water': {
-            'DmgWaterTransportationTot': ['tot_destroyed'],
-            'LosWaterTransportationTot': ['tot_los'],
-            'WaterTransportationTotPub': ['tot_destroyed'],
-            'WaterTransportationTotPvt': ['tot_destroyed'],
-        },
-        'agri_agrarian': {
-            'AgrarianTotPub': ['tot_damages_pub'],
-            'AgrarianTotPvt': ['tot_damages_pub'],
-            'DmgAgrarianTot': ['tot_damages'],
-            'LosAgrarianTot': ['tot_damages']
-        },
-        'agri_fisheries': {
-            'DmgFisheriesTot': ['tot_damages_pvt'],
-            'FisheriesTotPub': ['tot_damages_pub'],
-            'FisheriesTotPvt': ['tot_damages_pvt'],
-            'LosFisheriesTot': ['los_year_2_pvt']
-        },
-        'agri_irrigation': {
-            'DmgIrrigationTot': ['damages'],
-            'IrrigationTotPub': ['tot_damages_pub'],
-            'LosIrrigationTot': ['total_los']
-        },
-        'agri_livestock': {
-            'DmgLivestockTot': ['tot_damages_pub'],
-            'LivestockTotPub': ['tot_damages_pub'],
-            'LivestockTotPvt': ['tot_damages_pvt'],
-            'LosLivestockTot': ['tot_damages_pub']
-        },
-        'housing': {
-            'DmgHousingTot': ['tot_dmg'],
-            'LosHousingTot': ['tot_loss'],
-            'HousingTotPvt': ['tot_pvt'],
-        },
-        'industry_services': {
-            'DmgIndustryServicesTot': ['tot_damages_pub'],
-            'IndustryServicesTotPub': ['tot_damages_pub'],
-            'IndustryServicesTotPvt': ['tot_damages_pvt'],
-            'LosIndustryServicesTot': ['tot_damages_pub'],
-        },
-        'power_supply': {
-            'DmgPowerSupplyTot': ['tot_destroyed'],
-            'LosPowerSupplyTot': ['tot_los'],
-            'PowerSupplyTotPub': ['dmg_tot_pub'],
-            'PowerSupplyTotPvt': ['dmg_tot_pvt'],
-        },
-        'telecommunication': {
-            'CommunicationTotPub': ['tot_damages_pub'],
-            'CommunicationTotPvt': ['tot_damages_pvt'],
-            'DmgCommunicationTot': ['tot_damages'],
-            'LosCommunicationTot': ['tot_los'],
-        },
-        'tourism': {
-            'DmgTourismTot': ['tot_damages'],
-            'LosTourismTot': ['tot_loss'],
-            'TourismTotPub': ['tot_pub'],
-            'TourismTotPvt': ['tot_pvt'],
-        },
-        'water_supply': {
-            'DmgWaterSupplyTot': ['dmg_tot_pub'],
-            'LosWaterSupplyTot': ['tot_los'],
-            'WaterSupplyTotPub': ['tot_dmg_pub'],
-        },
+        'Table_2': {
+            'province': {
+                'SumProvinceDmg': ['tot_dmg', 'province', 'name'],
+                'SumProvinceLoss': ['tot_loss', 'province', 'name'],
+                'SumProvincePub': ['tot_pub', 'province', 'name'],
+                'SumProvincePvt': ['tot_pvt', 'province', 'name'],
+            },
+        }
     }
 }
 

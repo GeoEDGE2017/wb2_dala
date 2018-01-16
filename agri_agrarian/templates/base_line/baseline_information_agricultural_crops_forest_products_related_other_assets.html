@@ -2,22 +2,24 @@
 {% block content %}
 {% load static %}
 <script>
-  $(document).ready(function() {
-  
-    var nicesx = $("#boxscroll").niceScroll({touchbehavior:false,cursorcolor:"#4679B2",cursoropacitymax:0.6,cursorwidth:8});
-    
-  });
-</script>
+    $(document).ready(function() {
+        var nicesx = $("#boxscroll").niceScroll({touchbehavior:false,cursorcolor:"#4679B2",cursoropacitymax:0.6,cursorwidth:8});
+    });
 
+</script>
 <!-- Main content -->
 <main class="main" ng-app="bsInfoAcfoAssetsApp" ng-controller="bsInfoAcfoAssetsController">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{% url 'dashboard:index' %}">Dashboard</a>
+            <a href="{% url 'dashboard:index' %}">
+                Dashboard
+            </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{% url 'dashboard:agri_agrarian_main' %}">Agri Agrarian Sector</a>
+            <a href="{% url 'dashboard:agri_agrarian_main' %}">
+                Agri Agrarian Sector
+            </a>
         </li>
         <li class="breadcrumb-item active">
             <span class="label label-success" style="font-size:14px;">
@@ -27,7 +29,8 @@
         <li style="float:right;">
             <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}" target="_blank"
                style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip"
-               title="Veiw Document"></a>
+               title="Veiw Document">
+            </a>
         </li>
     </ol>
     <div class="container-fluid">
@@ -42,36 +45,35 @@
             </ul>
             <div id="myTabContent" class="tab-content" ng-form name="form_bs_info_sero_assets">
                 <div class="tab-pane active" id="step1">
-                 
                     <table class="table table-bordered">
                         <colgroup>
                             <col width="249"/>
                             <col width="148"/>
                             <col width="121"/>
-                            <col width="117" />
+                            <col width="117"/>
                             <col width="112"/>
                             <col width="99"/>
                         </colgroup>
                         <tbody>
-                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <td style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
-                            </td>
-                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box"
-                                      ng-show="submitted && form_bs_info_sero_assets.district.$error.required">
-                                    Please Select District
-                                </span>
-                            </td>
-                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                            </td>
-                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box"
-                                      ng-show="submitted && form_bs_info_sero_assets.baselineDate.$error.required">
-                                    Please Select Date
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="trhead1" height="19">
+                            <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <td style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
+                                </td>
+                                <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                    <span class="arrow_box"
+                                          ng-show="submitted && form_bs_info_sero_assets.district.$error.required">
+                                        Please Select District
+                                    </span>
+                                </td>
+                                <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                </td>
+                                <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                    <span class="arrow_box"
+                                          ng-show="submitted && form_bs_info_sero_assets.baselineDate.$error.required">
+                                        Please Select Date
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="trhead1" height="19">
                             <td width="249" style="padding-left:5px;" height="19">
                                 District:
                             </td>
@@ -93,24 +95,32 @@
                                        ng-change="getValue();changeDis();"
                                        id="datepicker" ng-model="bs_date" class="form-control input-md" required>
                             </td>
-                             <td style="width:100px;"> <span ng-if="!check_search">
-                                    <button ng-if="!is_search" class="btn btn-info" disabled><span class="fa fa-search"></span></button>
-                    </span> <span ng-if="check_search">
-                                    <button ng-click="searchBsData(form_bs_info_sero_assets)" ng-if="!is_search" class="btn btn-info"><span class="fa fa-search"></span></button>
-                    </span>
-                    <button ng-click="clear()" ng-if="is_search" class="btn  btn-warning"><span class="fa fa-times" aria-hidden="true"></span></button>
-                </td>
+                            <td style="width:100px;">
+                                <span ng-if="!check_search">
+                                    <button ng-if="!is_search" class="btn btn-info" disabled>
+                                        <span class="fa fa-search"></span>
+                                    </button>
+                                </span>
+                                <span ng-if="check_search">
+                                    <button ng-click="searchBsData(form_bs_info_sero_assets)" ng-if="!is_search"
+                                        class="btn btn-info">
+                                        <span class="fa fa-search"></span>
+                                    </button>
+                                </span>
+                                <button ng-click="clear()" ng-if="is_search" class="btn  btn-warning">
+                                    <span class="fa fa-times" aria-hidden="true"></span>
+                                </button>
+                            </td>
                             <span ng-bind="user_id={{user.id}}" style="display:none;"></span>
                         </tr>
                         </tbody>
-                        </table>
-
-                        <table class="table table-bordered">
+                    </table>
+                    <table class="table table-bordered">
                         <colgroup>
                             <col width="249"/>
                             <col width="148"/>
                             <col width="121"/>
-                            <col width="117" />
+                            <col width="117"/>
                             <col width="112"/>
                             <col width="99"/>
                         </colgroup>
@@ -153,15 +163,15 @@
                     </table>
                     <div id="boxscroll" style="height:400px;overflow:auto;">
                         <table class="table table-bordered">
-                             <colgroup>
-                            <col width="249"/>
-                            <col width="148"/>
-                            <col width="121"/>
-                            <col width="117" />
-                            <col width="112"/>
-                            <col width="99"/>
-                        </colgroup>
-                        <tbody>
+                            <colgroup>
+                                <col width="249"/>
+                                <col width="148"/>
+                                <col width="121"/>
+                                <col width="117"/>
+                                <col width="112"/>
+                                <col width="99"/>
+                            </colgroup>
+                            <tbody>
                             <tr class="trheadc" height="19">
                                 <td width="249" height="19">
                                     Seasonal Crops
@@ -411,12 +421,13 @@
                         </table>
                     </div>
                     <br>
-                    <a href="#step2" id="s1" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
-                            class="glyphicon glyphicon-arrow-right"></span> Fill Assets Informations</a>
+                    <a href="#step2" id="s1" class="btn btn-sm btn-info pull-right" data-toggle="tab">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                        Fill Assets Informations
+                    </a>
                     <br>
                 </div>
                 <div class="tab-pane fade" id="step2">
-
                     <table class="table table-bordered">
                         <tbody>
                         <tr class="trheadc1" height="19">
@@ -499,12 +510,9 @@
                                     <i class="fa fa-minus"></i>
                                 </button>
                                 <input style="width:80%;float:right;" name="bacfStocks_{{$index}}"
-                                       ng-model="bacfStocks.assets"
-                                       popover="This field is required"
+                                       ng-model="bacfStocks.assets" popover="This field is required"
                                        popover-toggle="form_bs_info_sero_assets['bacfStocks_' + $index].$dirty && !form_bs_info_sero_assets['bacfStocks_' + $index].$valid"
-                                       popover-placement="top" required
-                                       type="text"
-                                       class="form-control input-md">
+                                       popover-placement="top" required type="text" lass="form-control input-md">
                                 {% endverbatim %}
                             </td>
                             <td colspan="6">
@@ -523,7 +531,6 @@
                             <td colspan="6">
                             </td>
                         </tr>
-
                         <!-- new table -->
                         <tr class="trheadc">
                             <td height="20" align="justify" valign="middle">
@@ -540,19 +547,16 @@
                                 Plantation Crops
                             </td>
                             <td colspan="6" align="center" valign="middle">
-
                             </td>
                         </tr>
                         <tr height="19"
                             ng-repeat="bacfAvgrePlantnCrops in bsInfoAcfoAssets.agri_agrarian.Table_2.BacfAvgrePlantnCrops">
                             <td class="tdpa" width="249" height="19" ng-bind="bacfAvgrePlantnCrops.assets">
                             </td>
-
                             <td width="148" colspan="6">
                                 <input id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md" ng-model="bacfAvgrePlantnCrops.avg_value">
                             </td>
-
                         </tr>
                         <tr class="trheadc">
                             <td height="20" align="left" valign="middle">
@@ -566,7 +570,6 @@
                             ng-repeat="bacfAvgreExportCrops in bsInfoAcfoAssets.agri_agrarian.Table_2.BacfAvgreExportCrops">
                             <td class="tdpa" width="249" height="19" ng-bind="bacfAvgreExportCrops.assets">
                             </td>
-
                             <td width="148" colspan="6">
                                 <input id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md" ng-model="bacfAvgreExportCrops.avg_value">
@@ -577,14 +580,12 @@
                                 Forestry
                             </td>
                             <td colspan="6" align="center" valign="middle">
-
                             </td>
                         </tr>
                         <tr height="19"
                             ng-repeat="bacfAvgreForestry in bsInfoAcfoAssets.agri_agrarian.Table_2.BacfAvgreForestry">
                             <td class="tdpa" width="249" height="19" ng-bind="bacfAvgreForestry.assets">
                             </td>
-
                             <td width="148" colspan="6">
                                 <input id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md" ng-model="bacfAvgreForestry.avg_value">
@@ -592,12 +593,12 @@
                         </tr>
                         </tbody>
                     </table>
-
                     <div class="pull-right">
                         <br>
                         <button id="clearbtn" type="button" ng-click="clear()" class="btn btn-info">Clear</button>
                         <span ng-if="is_edit_disable">
-                            <button id="editbtn" type="button" ng-click="editBsData(form_bs_info_sero_assets)" ng-if="!is_edit"
+                            <button id="editbtn" type="button" ng-click="editBsData(form_bs_info_sero_assets)"
+                                    ng-if="!is_edit"
                                     class="btn btn-success">
                                 Edit
                             </button>
@@ -607,12 +608,13 @@
                                 Edit
                             </button>
                         </span>
-                        <button id="editbtn" type="button" ng-click="cancelEdit()" ng-if="is_edit" class="btn btn-warning">
+                        <button id="editbtn" type="button" ng-click="cancelEdit()" ng-if="is_edit"
+                                class="btn btn-warning">
                             Cancel Edit
                         </button>
                         <!--<button type="button" ng-disabled="form_pop_lat_census.$invalid"-->
-                                <!--ng-click="saveBsData(form_bs_info_sero_assets)" class="btn btn-success">-->
-                            <!--Submit-->
+                        <!--ng-click="saveBsData(form_bs_info_sero_assets)" class="btn btn-success">-->
+                        <!--Submit-->
                         <!--</button>-->
                         <span ng-if="!is_submit">
                             <button id="subbtn" type="button" ng-click="saveBsData(form_bs_info_sero_assets)"
@@ -666,7 +668,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </main>
 {% endblock content %}

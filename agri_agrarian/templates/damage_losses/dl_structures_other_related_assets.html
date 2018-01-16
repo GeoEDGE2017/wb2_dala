@@ -9,10 +9,14 @@
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{% url 'dashboard:index' %}">Dashboard</a>
+            <a href="{% url 'dashboard:index' %}">
+                Dashboard
+            </a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{% url 'dashboard:agri_agrarian_main' %}">Agri Agrarian Sector</a>
+            <a href="{% url 'dashboard:agri_agrarian_main' %}">
+                Agri Agrarian Sector
+            </a>
         </li>
         <li class="breadcrumb-item active">
             <span class="label label-success" style="font-size:14px;">
@@ -22,23 +26,26 @@
         <span style="margin-left:15px;color:#000;" ng-bind="currentBaselineDate"></span>
         <li style="float:right;">
             <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}" target="_blank"
-               style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip"
-               title="Veiw Document"></a>
+                style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip" title="Veiw Document">
+            </a>
         </li>
     </ol>
     <div class="container-fluid" ng-form name="form_dl_struts_oth_asets">
         <div>
             <ul class='nav nav-wizard'>
                 <li id="li1" class="active">
-                    <a href='#step1' data-toggle="tab">1 Totally Destroyed</a>
+                    <a href='#step1' data-toggle="tab">
+                        1 Totally Destroyed
+                    </a>
                 </li>
                 <li id="li2">
-                    <a href='#step2' data-toggle="tab">2 Partially Damaged </a>
+                    <a href='#step2' data-toggle="tab">
+                        2 Partially Damaged
+                    </a>
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane active" id="step1">
-                 
                     <table class="table table-bordered">
                         <colgroup>
                             <col width="249"/>
@@ -186,37 +193,28 @@
                                 Total
                             </td>
                             <td class="tdpa" width="148">
-
                             </td>
                             <td class="tdpa" width="121">
-
                             </td>
                             <td class="tdpa" colspan="2">
-
                             </td>
                             <td class="tdpa" colspan="2">
-
                             </td>
-                            <td class="right" width="85" ng-model="dsorDestStructures.dmg_pub" ng-bind="dsorDestStructures.dmg_pub = calPubTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDestStructures)">
-
+                            <td class="right" width="85" ng-model="dsorDestStructures.dmg_pub"
+                                ng-bind="dsorDestStructures.dmg_pub = calPubTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDestStructures)">
                             </td>
-                            <td class="right" width="85" ng-model="dsorDestStructures.dmg_pvt" ng-bind="dsorDestStructures.dmg_pvt = calPvtTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDestStructures)">
-
+                            <td class="right" width="85" ng-model="dsorDestStructures.dmg_pvt"
+                                ng-bind="dsorDestStructures.dmg_pvt = calPvtTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDestStructures)">
                             </td>
                         </tr>
                         </tbody>
                     </table>
-
-
                     <br>
                     <a href="#step2" id="s1" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
                             class="glyphicon glyphicon-arrow-right"></span> Fill Partially Damaged Informations</a>
                     <br>
                 </div>
-
-
                 <div class="tab-pane fade" id="step2">
-
                     <table class="table table-bordered">
                         <tr class="trheadc1" height="19">
                             <td width="249" height="19">
@@ -305,7 +303,6 @@
                             <td class="right" colspan="2" width="170" ng-model="dsorDmgPubStructure.damages"
                                 ng-bind="dsorDmgPubStructure.damages =
                                 calDamgTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPubStructure)">
-
                             </td>
                         </tr>
                         <tr class="trheadc" height="19">
@@ -379,7 +376,9 @@
                             </td>
                             <td class="tdpa" width="99" ng-bind="dsorDmgPvtStructures.tot_dmg_floors">
                             </td>
-                            <td class="right" colspan="2" width="170" ng-model="dsorDmgPvtStructures.damages" ng-bind="dsorDmgPvtStructures.damages = calDamgTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtStructures)">
+                            <td class="right" colspan="2" width="170" ng-model="dsorDmgPvtStructures.damages"
+                                ng-bind="dsorDmgPvtStructures.damages =
+                                calDamgTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtStructures)">
                             </td>
                         </tr>
                         <tr class="trheadc1" height="19">
@@ -452,7 +451,6 @@
                                      dsorDmgPvtOequipment.num_dmg_pvt * bs_data['BsoeOequipment'][$index].fields.avg_repair_cost">
                             </td>
                         </tr>
-
                         <!--Total-->
                         <tr height="19"
                             ng-repeat="dsorDmgPvtOequipment in dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtOequipment"
@@ -467,11 +465,11 @@
                             </td>
                             <td class="tdpa" colspan="2">
                             </td>
-                            <td class="right" width="85" ng-model="dsorDmgPvtOequipment.dmg_pub" ng-bind="dsorDmgPvtOequipment.dmg_pub = calPubTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtOequipment)">
-
+                            <td class="right" width="85" ng-model="dsorDmgPvtOequipment.dmg_pub"
+                                ng-bind="dsorDmgPvtOequipment.dmg_pub = calPubTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtOequipment)">
                             </td>
-                            <td class="right" width="85" ng-model="dsorDmgPvtOequipment.dmg_pvt" ng-bind="dsorDmgPvtOequipment.dmg_pvt = calPvtTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtOequipment)">
-
+                            <td class="right" width="85" ng-model="dsorDmgPvtOequipment.dmg_pvt"
+                                ng-bind="dsorDmgPvtOequipment.dmg_pvt = calPvtTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtOequipment)">
                             </td>
                         </tr>
                         <tr class="trheadc" height="19">
@@ -513,7 +511,6 @@
                                 <input id="textinput" name="textinput" type="numbe" placeholder=""
                                        class="form-control input-md" ng-model="dsorDmgPvtMachinery.num_dmg_pvt">
                             </td>
-
                             <td class="right" width="85"  ng-model="dsorDmgPvtMachinery.dmg_pub"
                              ng-bind="dsorDmgPvtMachinery.dmg_pub =
                                      dsorDmgPvtMachinery.num_dest_pub * bs_data['BsoeMachinery'][$index].fields.avg_replace_cost +
@@ -525,7 +522,6 @@
                                      dsorDmgPvtMachinery.num_dmg_pvt * bs_data['BsoeMachinery'][$index].fields.avg_repair_cost">
                             </td>
                         </tr>
-
                         <!--Total-->
                         <tr height="19"
                             ng-repeat="dsorDmgPvtMachinery in dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtMachinery"
@@ -540,11 +536,13 @@
                             </td>
                             <td class="tdpa" colspan="2" ng-bind="dsorDmgPvtMachinery.num_dmg_pvt">
                             </td>
-                            <td class="right" width="85" ng-model="dsorDmgPvtMachinery.dmg_pub" ng-bind="dsorDmgPvtMachinery.dmg_pub = calPubTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtMachinery)">
-
+                            <td class="right" width="85" ng-model="dsorDmgPvtMachinery.dmg_pub"
+                                ng-bind="dsorDmgPvtMachinery.dmg_pub =
+                                calPubTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtMachinery)">
                             </td>
-                            <td class="right" width="85" ng-model="dsorDmgPvtMachinery.dmg_pvt" ng-bind="dsorDmgPvtMachinery.dmg_pvt = calPvtTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtMachinery)">
-
+                            <td class="right" width="85" ng-model="dsorDmgPvtMachinery.dmg_pvt"
+                                ng-bind="dsorDmgPvtMachinery.dmg_pvt =
+                                calPvtTotal($parent.dlStrutsOthAsets.agri_agrarian.Table_5.DsorDmgPvtMachinery)">
                             </td>
                         </tr>
                         <!--GRAND TOTAL-->
@@ -553,16 +551,11 @@
                                 GRAND TOTAL
                             </td>
                             <td class="right" width="85" ng-bind="calGrandPubTotal()">
-
                             </td>
                             <td class="right" width="85" ng-bind="calGrandPvtTotal()">
-
                             </td>
                         </tr>
-                        </tbody>
                     </table>
-
-
                     <br>
                     <div class="pull-right">
                         <button id="clearbtn" type="button" ng-click="clear()" class="btn btn-info">Clear</button>
@@ -589,8 +582,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="col-md-12">
             <div class="modal fade" id="modal-container-218029" role="dialog" style="width:50%;margin:0 auto;"
                  aria-hidden="true">
@@ -648,7 +639,9 @@
                         <span class="icon-close"></span>
                         Please update the baseline <br>
                         <b>'Table 3. Baseline Information on Structures, Office Equipment and Related Other
-                            Assets'</b><br>
+                            Assets'
+                        </b>
+                        <br>
                         information before you calculate the damage and loss !
                     </h4>
                 </div>
@@ -666,6 +659,4 @@
         </div>
     </div>
 </main>
-
-
 {% endblock content %}

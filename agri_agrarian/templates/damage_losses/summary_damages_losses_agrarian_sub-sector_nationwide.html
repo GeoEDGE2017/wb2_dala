@@ -20,8 +20,7 @@
         </li>
         <li style="float:right;">
             <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}" target="_blank"
-               style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip"
-               title="Veiw Document">
+                style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip" title="Veiw Document">
             </a>
         </li>
     </ol>
@@ -43,10 +42,9 @@
                             Incident:
                         </td>
                         <td colspan="7" style="background:#EFEFEF;">
-                            <select id="select" name="incident" ng-model="incident"
-                                        class="form-control" style="width:100%;font-weight:400;"
-                                        ng-change="changedValue(incident);fetchDlData();" required>
-                                    <option value="" selected="true">Select an Incident</option>
+                            <select id="select" name="incident" ng-model="incident" class="form-control" style="width:100%;font-weight:400;"
+                                ng-change="changedValue(incident);fetchDlData();" required>
+                                <option value="" selected="true">Select an Incident</option>
                                     {% for incident in incidents %}
                                         <option value={{incident.id}}>
                                         <!--{{incident.disaster_type.name}}-->
@@ -87,55 +85,55 @@
                             </td>
                         </tr>
                         <tr class="trheadc1" height="20">
-                    <td width="148" height="20">
-                        Public
-                    </td>
-                    <td width="121" style="width:11%;">
-                        Private
-                    </td>
-                    <td width="117" style="width:12%;">
-                        Public
-                    </td>
-                    <td width="117" style="width:12.3%;">
-                        Private
-                    </td>
-                    <td width="112" style="width:9.8%;">
-                        Public
-                    </td>
-                    <td width="99" style="width:9.8%;">
-                        Private
-                    </td>
-                    <td width="85" style="width:9.2%;">
-                        Public
-                    </td>
-                    <td width="85" style="width:6.5%;">
-                        Private
-                    </td>
-                </tr>
+                            <td width="148" height="20">
+                                Public
+                            </td>
+                            <td width="121" style="width:11%;">
+                                Private
+                            </td>
+                            <td width="117" style="width:12%;">
+                                Public
+                            </td>
+                            <td width="117" style="width:12.3%;">
+                                Private
+                            </td>
+                            <td width="112" style="width:9.8%;">
+                                Public
+                            </td>
+                            <td width="99" style="width:9.8%;">
+                                Private
+                            </td>
+                            <td width="85" style="width:9.2%;">
+                                Public
+                            </td>
+                            <td width="85" style="width:6.5%;">
+                                Private
+                            </td>
+                        </tr>
                     </tbody>
                     <div class="pull-right">
                         <tbody ng-repeat="(key, value) in dlAgriAgrarianSumNat.agri_agrarian.Table_10" ng-if="!checkIfNull()">
                             <tr  height="20" ng-init="getTotal($index,key);">
-                            <td ng-bind="key" class="tdpa" width="253" height="19">
-                            </td>
-                            <td class="right" width="147" ng-bind="value.DsorDmgPubNational[0].sum">
-                            </td>
-                            <td class="right" width="151" ng-bind="value.DsorDmgPvtNational[0].sum">
-                            </td>
-                            <td class="right" width="165" ng-bind="value.DsorLosYear1National[0].dmg_los_pub">
-                            </td>
-                            <td class="right" width="170" ng-bind="value.DsorLosYear1National[0].dmg_los_pvt">
-                            </td>
-                            <td class="right" width="135" ng-bind="value.DsorLosYear2National[0].dmg_los_pub">
-                            </td>
-                            <td class="right" width="133" ng-bind="value.DsorLosYear2National[0].dmg_los_pvt">
-                            </td>
-                            <td class="right" width="126" ng-bind="value.DsorDmgPubNational[0].sum +
-                            value.DsorLosYear1National[0].dmg_los_pub + value.DsorLosYear2National[0].dmg_los_pub ">
-                            </td>
-                            <td class="right" width="85" ng-bind="value.DsorDmgPvtNational[0].sum +
-                            value.DsorLosYear1National[0].dmg_los_pvt + value.DsorLosYear2National[0].dmg_los_pvt ">
-                            </td>
+                                <td ng-bind="key" class="tdpa" width="253" height="19">
+                                </td>
+                                <td class="right" width="147" ng-bind="value.DsorDmgPubNational[0].sum">
+                                </td>
+                                <td class="right" width="151" ng-bind="value.DsorDmgPvtNational[0].sum">
+                                </td>
+                                <td class="right" width="165" ng-bind="value.DsorLosYear1National[0].dmg_los_pub">
+                                </td>
+                                <td class="right" width="170" ng-bind="value.DsorLosYear1National[0].dmg_los_pvt">
+                                </td>
+                                <td class="right" width="135" ng-bind="value.DsorLosYear2National[0].dmg_los_pub">
+                                </td>
+                                <td class="right" width="133" ng-bind="value.DsorLosYear2National[0].dmg_los_pvt">
+                                </td>
+                                <td class="right" width="126" ng-bind="value.DsorDmgPubNational[0].sum +
+                                    value.DsorLosYear1National[0].dmg_los_pub + value.DsorLosYear2National[0].dmg_los_pub ">
+                                </td>
+                                <td class="right" width="85" ng-bind="value.DsorDmgPvtNational[0].sum +
+                                    value.DsorLosYear1National[0].dmg_los_pvt + value.DsorLosYear2National[0].dmg_los_pvt ">
+                                </td>
                             </tr>
                         </tbody>
                     </div>
@@ -146,15 +144,15 @@
                             </td>
                             <td class="right" width="147" ng-bind="totaldpub">
                             </td>
-                            <td class="right" width="151" ng-bind="totaldpvt"  >
+                            <td class="right" width="151" ng-bind="totaldpvt">
                             </td>
-                            <td class="right" width="165" ng-bind="totalyear1pub"  >
+                            <td class="right" width="165" ng-bind="totalyear1pub">
                             </td>
-                            <td class="right" width="170"  ng-bind="totalyear1pvt"  >
+                            <td class="right" width="170"  ng-bind="totalyear1pvt">
                             </td>
-                            <td class="right" width="135" ng-bind="totalyear2pub"  >
+                            <td class="right" width="135" ng-bind="totalyear2pub">
                             </td>
-                            <td class="right" width="133" ng-bind="totalyear2pvt"  >
+                            <td class="right" width="133" ng-bind="totalyear2pvt">
                             </td>
                             <td class="right" width="126" ng-bind="finaltotalpublic">
                             </td>
@@ -176,7 +174,7 @@
                             ×
                         </button>
                         <h5 class="modal-title">
-                            <span id="bookId"> </span>
+                            <span id="bookId"></span>
                         </h5>
                     </div>
                     <div class="modal-body">

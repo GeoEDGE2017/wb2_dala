@@ -629,8 +629,9 @@ class DmgWaterTransportationTot(models.Model):
 # Table 2
 class SumProvinceDmg(models.Model):
     tot_dmg = models.FloatField(blank=True, null=True)
-    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', related_name='mn_dl_province123', blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -639,8 +640,9 @@ class SumProvinceDmg(models.Model):
 
 class SumProvinceLoss(models.Model):
     tot_loss = models.FloatField(blank=True, null=True)
-    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', related_name='mn_dl_province13', blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -649,8 +651,9 @@ class SumProvinceLoss(models.Model):
 
 class SumProvincePub(models.Model):
     tot_pub = models.FloatField(blank=True, null=True)
-    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', related_name='mn_dl_province14', blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -659,25 +662,13 @@ class SumProvincePub(models.Model):
 
 class SumProvincePvt(models.Model):
     tot_pvt = models.FloatField(blank=True, null=True)
-    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', related_name='mn_dl_province15', blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'sum_province_pvt'
-
-
-class SumNationalRailLos(models.Model):
-    tot_destroyed = models.FloatField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'sum_national_rail_los'
-
-
-
-
 
 
 

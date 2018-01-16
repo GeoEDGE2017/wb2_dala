@@ -5,18 +5,29 @@
 <main class="main" ng-app="bsInfoSeroAssetsApp" ng-controller="bsInfoSeroAssetsController">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'dashboard:index' %}">Dashboard</a>
+        <li class="breadcrumb-item">
+            <a href="{% url 'dashboard:index' %}">Dashboard</a>
         </li>
-        <li class="breadcrumb-item"><a href="{% url 'dashboard:agri_agrarian_main' %}">Agri Agrarian Sector</a>
+        <li class="breadcrumb-item">
+            <a href="{% url 'dashboard:agri_agrarian_main' %}">
+                Agri Agrarian Sector
+            </a>
         </li>
-        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 3. Baseline Information on Structures, Office Equipment and Related Other Assets</span>
+        <li class="breadcrumb-item active">
+            <span class="label label-success" style="font-size:14px;">
+                Table 3. Baseline Information on Structures, Office Equipment and Related Other Assets
+            </span>
         </li>
-        <li style="float:right;"> <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}" target="_blank" style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip" title="Veiw Document" ></a> </li>
+        <li style="float:right;">
+            <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}"
+               target="_blank" style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info"
+               data-toggle="tooltip" title="Veiw Document">
+            </a>
+        </li>
     </ol>
     <div class="container-fluid" ng-form name="form_bs_info_acfo_assets">
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane active" id="step1">
-             
                 <table class="table table-bordered">
                     <colgroup>
                         <col width="249"/>
@@ -26,30 +37,33 @@
                     </colgroup>
                     <tbody>
                     <tr style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <td  style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
-                            </td>
-                            <td colspan="2"  style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box" ng-show="submitted && form_bs_info_acfo_assets.district.$error.required">
-                                    Please select District
-                                </span>
-                            </td>
-                            <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
-                            </td>
-                            <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box" ng-show="submitted && form_bs_info_acfo_assets.baselineDate.$error.required">
-                                    Please select Date
-                                </span>
-                            </td>
-                        </tr>
+                        <td style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box"
+                                  ng-show="submitted && form_bs_info_acfo_assets.district.$error.required">
+                                Please select District
+                            </span>
+                        </td>
+                        <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                        </td>
+                        <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box"
+                                  ng-show="submitted && form_bs_info_acfo_assets.baselineDate.$error.required">
+                                Please select Date
+                            </span>
+                        </td>
+                    </tr>
                     <tr class="trhead1" height="19">
                         <td width="249" style="padding-left:5px;" height="19">
                             District:
                         </td>
                         <td colspan="" width="269">
-                            <select id="selectbasic" name="district" class="form-control" ng-change="changeDis()" ng-model="district" style="width:100%;font-weight:400;" required>
+                            <select id="selectbasic" name="district" class="form-control" ng-change="changeDis()"
+                                    ng-model="district" style="width:100%;font-weight:400;" required>
                                 <option value="" selected="true">Select a District</option>
                                 {% for district in districts %}
-                                    <option value={{ district.id }}>{{ district.name }}</option>
+                                <option value={{ district.id }}>{{ district.name }}</option>
                                 {% endfor %}
                             </select>
                         </td>
@@ -57,15 +71,25 @@
                             Year/Month:
                         </td>
                         <td width="117">
-                            <input name="baselineDate" type="text" placeholder="mm/yy" id="datepicker" ng-change="changeDis()" ng-model="bs_date" class="form-control input-md" required>
+                            <input name="baselineDate" type="text" placeholder="mm/yy" id="datepicker"
+                                   ng-change="changeDis()" ng-model="bs_date" class="form-control input-md" required>
                         </td>
-                         <td style="width:100px;"> <span ng-if="!check_search">
-                                    <button ng-if="!is_search" class="btn btn-info" disabled><span class="fa fa-search"></span></button>
-                    </span> <span ng-if="check_search">
-                                    <button ng-click="searchBsData(form_bs_info_acfo_assets)" ng-if="!is_search" class="btn btn-info"><span class="fa fa-search"></span></button>
-                    </span>
-                    <button ng-click="clear()" ng-if="is_search" class="btn  btn-warning"><span class="fa fa-times" aria-hidden="true"></span></button>
-                </td>
+                        <td style="width:100px;">
+                            <span ng-if="!check_search">
+                                <button ng-if="!is_search" class="btn btn-info" disabled>
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </span>
+                            <span ng-if="check_search">
+                                <button ng-click="searchBsData(form_bs_info_acfo_assets)" ng-if="!is_search"
+                                        class="btn btn-info">
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </span>
+                            <button ng-click="clear()" ng-if="is_search" class="btn  btn-warning">
+                                <span class="fa fa-times" aria-hidden="true"></span>
+                            </button>
+                        </td>
                         <span ng-bind="user_id={{user.id}}" style="display:none;"></span>
                     </tr>
                     <tr class="trheadc1" height="19">
@@ -140,15 +164,17 @@
                         </td>
                         <td width="98" ng-if="$index > 1">
                             {% verbatim %}
-                            <button id="delete" ng-click="removeItem('BsoeOequipment', $index)" class="btn btn-sm btn-danger btn-circle" >
+                            <button id="delete" ng-click="removeItem('BsoeOequipment', $index)"
+                                    class="btn btn-sm btn-danger btn-circle">
                                 <i class="fa fa-minus"></i>
                             </button>
-                            <input style="width:80%;float:right;" name="bsoeOequipment_{{$index}}" ng-model="bsoeOequipment.assets"
-                                popover="This field is required"
-                                popover-toggle="form_bs_nopopl_agrb_actv['bsoeOequipment_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bsoeOequipment_' + $index].$valid"
-                                popover-placement="top" required
-                                type="text"
-                                class="form-control input-md">
+                            <input style="width:80%;float:right;" name="bsoeOequipment_{{$index}}"
+                                   ng-model="bsoeOequipment.assets"
+                                   popover="This field is required"
+                                   popover-toggle="form_bs_nopopl_agrb_actv['bsoeOequipment_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bsoeOequipment_' + $index].$valid"
+                                   popover-placement="top" required
+                                   type="text"
+                                   class="form-control input-md">
                             {% endverbatim %}
                         </td>
                         <td colspan="2">
@@ -163,7 +189,8 @@
                     <tr class="tdpa" height="19">
                         <td class="tdpa" width="249" height="19">
                             Others &nbsp;&nbsp;
-                            <button ng-click="insertAsset('BsoeOequipment')" class="btn btn-sm btn-info btn-circle" id="insert">
+                            <button ng-click="insertAsset('BsoeOequipment')" class="btn btn-sm btn-info btn-circle"
+                                    id="insert">
                                 <span class="fa fa-plus"></span>
                             </button>
                         </td>
@@ -186,15 +213,17 @@
                         </td>
                         <td width="98" ng-if="$index > 2">
                             {% verbatim %}
-                            <button id="delete" ng-click="removeItem('BsoeMachinery', $index)" class="btn btn-sm btn-danger btn-circle" >
+                            <button id="delete" ng-click="removeItem('BsoeMachinery', $index)"
+                                    class="btn btn-sm btn-danger btn-circle">
                                 <i class="fa fa-minus"></i>
                             </button>
-                            <input style="width:80%;float:right;" name="bsoeMachinery_{{$index}}" ng-model="bsoeMachinery.assets"
-                                popover="This field is required"
-                                popover-toggle="form_bs_nopopl_agrb_actv['bsoeMachinery_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bsoeMachinery_' + $index].$valid"
-                                popover-placement="top" required
-                                type="text"
-                                class="form-control input-md">
+                            <input style="width:80%;float:right;" name="bsoeMachinery_{{$index}}"
+                                   ng-model="bsoeMachinery.assets"
+                                   popover="This field is required"
+                                   popover-toggle="form_bs_nopopl_agrb_actv['bsoeMachinery_' + $index].$dirty && !form_bs_nopopl_agrb_actv['bsoeMachinery_' + $index].$valid"
+                                   popover-placement="top" required
+                                   type="text"
+                                   class="form-control input-md">
                             {% endverbatim %}
                         </td>
                         <td colspan="2">
@@ -209,7 +238,8 @@
                     <tr class="tdpa" height="19">
                         <td class="tdpa" width="249" height="19">
                             Others &nbsp;&nbsp;
-                            <button ng-click="insertAsset('BsoeMachinery')" class="btn btn-sm btn-info btn-circle" id="insert">
+                            <button ng-click="insertAsset('BsoeMachinery')" class="btn btn-sm btn-info btn-circle"
+                                    id="insert">
                                 <span class="fa fa-plus"></span>
                             </button>
                         </td>
@@ -222,10 +252,11 @@
                 </table>
                 <br>
                 <div class="pull-right">
-                    
-                     <button id="clearbtn" type="button" ng-click="clear()"  class="btn btn-info">Clear</button>
+
+                    <button id="clearbtn" type="button" ng-click="clear()" class="btn btn-info">Clear</button>
                     <span ng-if="is_edit_disable">
-                        <button id="editbtn" type="button" ng-click="editBsData(form_bs_info_acfo_assets)" ng-if="!is_edit" class="btn btn-success">
+                        <button id="editbtn" type="button" ng-click="editBsData(form_bs_info_acfo_assets)"
+                                ng-if="!is_edit" class="btn btn-success">
                             Edit
                         </button>
                     </span>
@@ -238,8 +269,8 @@
                         Cancel Edit
                     </button>
                     <!--<button type="button" ng-disabled="form_pop_lat_census.$invalid" ng-click="saveBsData(form_bs_info_acfo_assets)"-->
-                        <!--class="btn btn-success">-->
-                        <!--Submit-->
+                    <!--class="btn btn-success">-->
+                    <!--Submit-->
                     <!--</button>-->
                     <span ng-if="!is_submit">
                         <button id="subbtn" type="button" ng-click="saveBsData(form_bs_info_acfo_assets)"
@@ -248,7 +279,7 @@
                         </button>
                     </span>
                     <span ng-if="is_submit">
-                        <button  id="subbtn"type="button" class="btn btn-success" disabled>
+                        <button id="subbtn" type="button" class="btn btn-success" disabled>
                             Submit
                         </button>
                     </span>

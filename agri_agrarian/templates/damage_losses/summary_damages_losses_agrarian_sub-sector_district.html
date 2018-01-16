@@ -21,8 +21,8 @@
         </li>
         <li style="float:right;">
             <a href="{% static 'dashboard/doc/4A-Agriculture-Agrarian-14Mar17.pdf' %}" target="_blank"
-               style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip"
-               title="Veiw Document"></a>
+                style="font-size: 18px;font-weight:bold;text-decoration: none;" class="icon-info" data-toggle="tooltip" title="Veiw Document">
+            </a>
         </li>
     </ol>
     <div class="container-fluid">
@@ -48,373 +48,388 @@
                             <col width="85" span="2"/>
                         </colgroup>
                         <tbody>
-                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <td colspan="3" style="background:#fff;border:1px solid #fff;text-align:center;">
-                            </td>
-                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box"
-                                      ng-show="isLoded && form_dlsum_agri_distr.incident.$error.required">
-                                    Please Select Incident
-                                </span>
-                            </td>
-                            <td style="background:#fff;border:1px solid #fff;text-align:center;">
-                            </td>
-                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box"
-                                      ng-show="isLoded && form_dlsum_agri_distr.district.$error.required">
-                                    Please Select District
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="trhead1" height="20">
-                            <td colspan="3" width="413" style="padding-left:5px;">
-                                Incident:
-                            </td>
-                            <td width="85" colspan="2">
-                                <select id="selectbasic" name="incident" ng-model="incident"
-                                        class="form-control"
-                                        ng-change="changedValue(true);loadData(form_dlsum_agri_distr);"
-                                        style="width:100%;font-weight:400;" required>
-                                    <option value="" selected="true">Select an Incident</option>
-                                    {% for incident in incidents %}
-                                    <option value={{incident.id}}>
-                                        <!--{{incident.disaster_type.name}}-->
-                                        <!--{{incident.reported_date_time}}-->
-                                        {{incident.incident_name}}
-                                    </option>
-                                    {% endfor %}
-                                </select>
-                            </td>
-                            <td width="249" height="20" style="padding-left:5px;">
-                                District:
-                            </td>
-                            <td colspan="2" width="386">
-                                <select ng-options="district as district.district__name for district in districts track by district.district__id"
+                            <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <td colspan="3" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                </td>
+                                <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                    <span class="arrow_box"
+                                        ng-show="isLoded && form_dlsum_agri_distr.incident.$error.required">
+                                        Please Select Incident
+                                    </span>
+                                </td>
+                                <td style="background:#fff;border:1px solid #fff;text-align:center;">
+                                </td>
+                                <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                    <span class="arrow_box"
+                                        ng-show="isLoded && form_dlsum_agri_distr.district.$error.required">
+                                        Please Select District
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="trhead1" height="20">
+                                <td colspan="3" width="413" style="padding-left:5px;">
+                                    Incident:
+                                </td>
+                                <td width="85" colspan="2">
+                                    <select id="selectbasic" name="incident" ng-model="incident"
+                                            class="form-control"
+                                            ng-change="changedValue(true);loadData(form_dlsum_agri_distr);"
+                                            style="width:100%;font-weight:400;" required>
+                                        <option value="" selected="true">Select an Incident</option>
+                                        {% for incident in incidents %}
+                                        <option value={{incident.id}}>
+                                            <!--{{incident.disaster_type.name}}-->
+                                            <!--{{incident.reported_date_time}}-->
+                                            {{incident.incident_name}}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td width="249" height="20" style="padding-left:5px;">
+                                    District:
+                                </td>
+                                <td colspan="2" width="386">
+                                    <select ng-options="district as district.district__name for district in districts track by district.district__id"
                                         name="district" id="ccyear" ng-model="district"
                                         ng-change="loadData(form_dlsum_agri_distr);" ng-value="district.district__id"
-                                        style="font-weight:400;"
-                                        class="form-control" required>
-                                    <option value="" selected>Select District</option>
-                                </select>
-                            </td>
-                            <span ng-bind="user_id={{user.id}}" style="display:none;"></span>
-                        </tr>
-                        <tr class="trheadc1" height="20">
-                            <td rowspan="2" width="249" height="40" style="width:15%;">
-                                Assets
-                            </td>
-                            <td colspan="8" width="884">
-                                Damages (LKR)
-                            </td>
-                        </tr>
-                        <tr class="trsubc" height="20">
-                            <td colspan="3" width="386" height="20" style="width:10%;">
-                                Public
-                            </td>
-                            <td colspan="3" width="328" style="width:10%;">
-                                Private
-                            </td>
-                            <td colspan="2" width="170" style="width:10%;">
-                                Total Damages
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Structures
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages + data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Office Equipment
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Machinery
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Farm Equipment
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Stocks
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Replanting
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"  ng-bind="data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Total
-                            </td>
-                            <td class="right" colspan="3" width="386"
-                                ng-bind="data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages +
-                                         data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub+
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub">
-                            </td>
-                            <td class="right" colspan="3" width="328" ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages +
-                                         data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170" ng-bind="(data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages + data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages) +
-                                         (data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt)+
-                                         (data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
-                                         data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt)">
-                            </td>
-                        </tr>
-                        <tr class="trheadc" height="20">
-                            <td width="249" height="20">
-                                Harvested Products
-                            </td>
-                            <td colspan="3">
-                            </td>
-                            <td colspan="3">
-                            </td>
-                            <td colspan="2">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Seasonal Crops
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Plantation Crops
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Export Crops
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Forestry
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Others Products
-                            </td>
-                            <td colspan="3" width="386" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub">
-                            </td>
-                            <td colspan="3" width="328" class="right"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                Total
-                            </td>
-                            <td class="right" colspan="3" width="386"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
-                                         data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub">
-                            </td>
-                            <td class="right" colspan="3" width="328"
-                                ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt +
+                                        style="font-weight:400;" class="form-control" required>
+                                        <option value="" selected>Select District</option>
+                                    </select>
+                                </td>
+                                <span ng-bind="user_id={{user.id}}" style="display:none;"></span>
+                            </tr>
+                            <tr class="trheadc1" height="20">
+                                <td rowspan="2" width="249" height="40" style="width:15%;">
+                                    Assets
+                                </td>
+                                <td colspan="8" width="884">
+                                    Damages (LKR)
+                                </td>
+                            </tr>
+                            <tr class="trsubc" height="20">
+                                <td colspan="3" width="386" height="20" style="width:10%;">
+                                    Public
+                                </td>
+                                <td colspan="3" width="328" style="width:10%;">
+                                    Private
+                                </td>
+                                <td colspan="2" width="170" style="width:10%;">
+                                    Total Damages
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Structures
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages +
+                                    data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Office Equipment
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Machinery
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Farm Equipment
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Stocks
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Replanting
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
+                                    data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Total
+                                </td>
+                                <td class="right" colspan="3" width="386"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages +
+                                             data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub+
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub">
+                                </td>
+                                <td class="right" colspan="3" width="328"
+                                    ng-bind="data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages +
+                                             data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="(data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages + data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages) +
+                                             (data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt) +
+                                             (data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt) +
+                                             (data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt) +
+                                             (data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt)+
+                                             (data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
+                                             data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt)">
+                                </td>
+                            </tr>
+                            <tr class="trheadc" height="20">
+                                <td width="249" height="20">
+                                    Harvested Products
+                                </td>
+                                <td colspan="3">
+                                </td>
+                                <td colspan="3">
+                                </td>
+                                <td colspan="2">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Seasonal Crops
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Plantation Crops
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Export Crops
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Forestry
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Others Products
+                                </td>
+                                <td colspan="3" width="386" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub">
+                                </td>
+                                <td colspan="3" width="328" class="right"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub +
+                                    data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    Total
+                                </td>
+                                <td class="right" colspan="3" width="386"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
+                                             data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub">
+                                </td>
+                                <td class="right" colspan="3" width="328"
+                                    ng-bind="data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt +
+                                            data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt +
+                                            data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt +
+                                            data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt +
+                                            data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="(data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
+                                            data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt) +
+                                            (data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
+                                            data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt) +
+                                            (data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
+                                            data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt) +
+                                            (data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
+                                            data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt) +
+                                            (data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub +
+                                            data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt)">
+                                </td>
+                            </tr>
+                            <tr height="20">
+                                <td class="tdpa" width="249" height="20">
+                                    TOTAL
+                                </td>
+                                <td class="right" colspan="3" width="386"
+                                    ng-bind="(data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages +
+                                        data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub) +
+                                        (data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub)+
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub">
+                                </td>
+                                <td class="right" colspan="3" width="328"
+                                    ng-bind="(data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages +
+                                        data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt +
                                         data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt +
                                         data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt +
                                         data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt +
-                                        data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="(data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt) +
-                                         (data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt)">
-                            </td>
-                        </tr>
-                        <tr height="20">
-                            <td class="tdpa" width="249" height="20">
-                                TOTAL
-                            </td>
-                            <td class="right" colspan="3" width="386" ng-bind="(data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages +
-                                 data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub +
-                                 data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub +
-                                 data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub +
-                                 data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub) +
-                                 (data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub)+
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub">
-                            </td>
-                            <td class="right" colspan="3" width="328"
-                                ng-bind="(data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages +
-                                 data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt +
-                                 data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt +
-                                 data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt +
-                                 data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt)+
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
-                            </td>
-                            <td class="right" colspan="2" width="170"
-                                ng-bind="(data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages + data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages) +
-                                 (data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt) +
-                                 (data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt)+
-                                 data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
-                                data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
-                            </td>
-                        </tr>
+                                        data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt)+
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
+                                </td>
+                                <td class="right" colspan="2" width="170"
+                                    ng-bind="(data.agri_agrarian.Table_8.DsorDmgPubStrusturesDistrict[0].damages + data.agri_agrarian.Table_8.DsorDmgPvtStrusturesDistrict[0].damages) +
+                                        (data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtOequipmentDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DsorDmgPvtMachineryDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfFarmEquipmentDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfStocksDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfSeasonalCropsDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfPlantnCropsDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfExportCropsDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfForestryDistrict[0].dmg_pvt) +
+                                        (data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pub + data.agri_agrarian.Table_8.DcpfOtherDistrict[0].dmg_pvt)+
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pub +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[0].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[1].dmg_pvt +
+                                        data.agri_agrarian.Table_8.DcpfRrePlantnDistrict[2].dmg_pvt">
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <br>
-                    <a href="#step2" id="s1" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
-                            class="glyphicon glyphicon-arrow-right"></span> Type of Crops Informations</a>
+                    <a href="#step2" id="s1" class="btn btn-sm btn-info pull-right" data-toggle="tab">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                        Type of Crops Informations
+                    </a>
                     <br>
                 </div>
                 <div class="tab-pane fade" id="step2">
@@ -569,11 +584,13 @@
                             <td width="99" class="right"
                                 ng-bind="data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_2_pvt">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pub +
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pub +
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_1_pub +
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_2_pub">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pvt +
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pvt +
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_1_pvt +
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_2_pvt">
                             </td>
@@ -582,9 +599,11 @@
                             <td class="tdpa" width="249" height="20">
                                 Forestry
                             </td>
-                            <td width="148" class="right" ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pub">
+                            <td width="148" class="right"
+                                ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pub">
                             </td>
-                            <td width="121" class="right" ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pvt">
+                            <td width="121" class="right"
+                                ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pvt">
                             </td>
                             <td width="117" class="right"
                                 ng-bind="data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_1_pub">
@@ -595,13 +614,16 @@
                             <td width="112" class="right"
                                 ng-bind="data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pub">
                             </td>
-                            <td width="99"  class="right" ng-bind="data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pvt">
+                            <td width="99"  class="right"
+                                ng-bind="data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pvt">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pub +
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pub +
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_1_pub +
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pub">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pvt +
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pvt +
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_1_pvt +
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pvt">
                             </td>
@@ -614,18 +636,24 @@
                             </td>
                             <td class="tdpa" class="right"  width="121">
                             </td>
-                            <td width="117" class="right"  ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pub">
+                            <td width="117" class="right"
+                                ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pub">
                             </td>
-                            <td width="117" class="right"  ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pvt">
+                            <td width="117" class="right"
+                                ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pvt">
                             </td>
-                            <td width="112" class="right"  ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pub">
+                            <td width="112" class="right"
+                                ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pub">
                             </td>
-                            <td width="99" class="right"  ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pvt">
+                            <td width="99" class="right"
+                                ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pvt">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pub +
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pub +
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pub">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pvt +
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pvt +
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pvt">
                             </td>
                         </tr>
@@ -633,41 +661,48 @@
                             <td class="tdpa" width="249" height="20">
                                 Total
                             </td>
-                            <td class="right"  width="148" ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pub+
+                            <td class="right"  width="148"
+                                ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pub+
                                 data.agri_agrarian.Table_8.DildPlantnCropsDistrict[0].invest_los_pub+
                                 data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pub+
                                 data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pub">
                             </td>
-                            <td class="right"  width="121" ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pvt+
+                            <td class="right"  width="121"
+                                ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pvt+
                                 data.agri_agrarian.Table_8.DildPlantnCropsDistrict[0].invest_los_pvt+
                                 data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pvt+
                                 data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pvt">
                             </td>
-                            <td class="right"  width="117" ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_1_pub+
+                            <td class="right"  width="117"
+                                ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_1_pub+
                                 data.agri_agrarian.Table_8.PldyPlantnCropsDistrict[0].prod_year_1_pub+
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_1_pub+
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_1_pub+
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pub">
                             </td>
-                            <td class="right"  width="117" ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_1_pvt+
+                            <td class="right"  width="117"
+                                ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_1_pvt+
                                 data.agri_agrarian.Table_8.PldyPlantnCropsDistrict[0].prod_year_1_pvt+
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_1_pvt+
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_1_pvt+
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_1_pvt">
                             </td>
-                            <td class="right"  width="112" ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_2_pub+
+                            <td class="right"  width="112"
+                                ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_2_pub+
                                 data.agri_agrarian.Table_8.PldyPlantnCropsDistrict[0].prod_year_2_pub+
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_2_pub+
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pub+
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pub">
                             </td>
-                            <td class="right"  width="99" ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_2_pvt+
+                            <td class="right"  width="99"
+                                ng-bind="data.agri_agrarian.Table_8.PldySeasonalCropsDistrict[0].prod_year_2_pvt+
                                 data.agri_agrarian.Table_8.PldyPlantnCropsDistrict[0].prod_year_2_pvt+
                                 data.agri_agrarian.Table_8.PldyExportCropsDistrict[0].prod_year_2_pvt+
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pvt+
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pvt">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pub+
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pub+
                                 data.agri_agrarian.Table_8.DildPlantnCropsDistrict[0].invest_los_pub+
                                 data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pub+
                                 data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pub+
@@ -682,7 +717,8 @@
                                 data.agri_agrarian.Table_8.PldyForestryDistrict[0].prod_year_2_pub+
                                 data.agri_agrarian.Table_8.PldyOtherDistrict[0].prod_year_2_pub">
                             </td>
-                            <td class="right"  width="85" ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pvt+
+                            <td class="right"  width="85"
+                                ng-bind="data.agri_agrarian.Table_8.DildSeasonalCropsDistrict[0].invest_los_pvt+
                                 data.agri_agrarian.Table_8.DildPlantnCropsDistrict[0].invest_los_pvt+
                                 data.agri_agrarian.Table_8.DildExportCropsDistrict[0].invest_los_pvt+
                                 data.agri_agrarian.Table_8.DildForestryDistrict[0].invest_los_pvt +

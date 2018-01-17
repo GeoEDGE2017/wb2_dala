@@ -2,12 +2,14 @@
 var app = angular.module('sumOfDamagesAndLossesByProvincesApp', ['underscore', 'ui.bootstrap', 'popoverToggle', 'ngPrint']);
 app.controller("sumOfDamagesAndLossesByProvincesController", function ($scope,$http,$parse) {
     $scope.incident;
+
     $scope.fetchSummaryData = function() {
         if($scope.incident) {
             $http({
                 method: "POST",
                 url: '/get1_summary_data_by_sector_for_provinces',
                 data: angular.toJson({
+                    'table_name': 'Table_2',
                     'com_data': {
                         'incident': $scope.incident,
                     },
@@ -23,18 +25,16 @@ app.controller("sumOfDamagesAndLossesByProvincesController", function ($scope,$h
     }
 
     $scope.checkIfNull = function() {
-        var isNull = $scope.dlWaterSupplySumNat ? angular.equals({}, $scope.dlWaterSupplySumNat.water_supply.Table_7) : true;
+        var isNull = $scope.provinceSumNat ? angular.equals({}, $scope.provinceSumNat.report.Table_2) : true;
         return isNull;
     }
 
     $scope.parseToFloat = function(val1=0) {
         if(val1 == null) {
-            val1=0;
+            val1 = 0;
         }
         return parseInt(val1);
     }
-
-//    $scope.fetchSummaryData();
 
     $scope.grandTotDamage = function() {
         if(!angular.isUndefined($scope.provinceSumNat)) {
@@ -115,5 +115,4 @@ app.controller("sumOfDamagesAndLossesByProvincesController", function ($scope,$h
             return tot_pvt;
         }
     }
-
 })

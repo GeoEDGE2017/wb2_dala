@@ -58,4 +58,20 @@ app.controller("sumOfDamagesAndLossesBySectorController", function ($scope,$http
     }
 
 //    $scope.fetchSummaryData();
+
+    $scope.grandTotDamage = function() {
+        if(!angular.isUndefined($scope.provinceSumNat)) {
+            var tot_damage = 0;
+            angular.forEach($scope.provinceSumNat.report.Table_2, function(value, index) {
+                angular.forEach(value, function(value_in, key) {
+                    if(value_in.length > 0) {
+                        if(key == 'SumProvinceDmg') {
+                            tot_damage = tot_damage + $scope.parseToFloat(value_in[0].tot_dmg);
+                        }
+                    }
+                })
+            })
+            return tot_damage;
+        }
+    }
 })

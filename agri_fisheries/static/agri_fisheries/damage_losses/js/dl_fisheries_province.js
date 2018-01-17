@@ -1,6 +1,5 @@
 //table 5
 var app = angular.module('dlAgriFisheriesProApp', ['underscore']);
-
 app.controller("DlAgriFisheriesProController", function ($scope, $http, $parse, _) {
     $scope.district;
     $scope.incident;
@@ -135,7 +134,7 @@ app.controller("DlAgriFisheriesProController", function ($scope, $http, $parse, 
             $scope.dlAgriFisheriesPro.agri_fisheries.Table_5[key].DlfDmgPvtDistrict[2].dmg_pvt:0):0);
 
 
-        var damageprivatestring = "damageprivate_"+ key;
+        var damageprivatestring = "damageprivate_" + key;
 
         var model = $parse(damageprivatestring);
         model.assign($scope, damageprivate);
@@ -156,7 +155,7 @@ app.controller("DlAgriFisheriesProController", function ($scope, $http, $parse, 
             $scope.dlAgriFisheriesPro.agri_fisheries.Table_5[key].DlfLosMfisheriesDistrict[0].los_year_1_pub:0):0);
 
 
-        var losPubliceyear1string = "losPubliceyear1_"+ key;
+        var losPubliceyear1string = "losPubliceyear1_" + key;
 
         var model = $parse(losPubliceyear1string);
         model.assign($scope, losPubliceyear1);
@@ -177,7 +176,7 @@ app.controller("DlAgriFisheriesProController", function ($scope, $http, $parse, 
             $scope.dlAgriFisheriesPro.agri_fisheries.Table_5[key].DlfLosMfisheriesDistrict[0].los_year_1_pvt:0):0);
 
 
-        var losPrivateyear1string = "losPrivateyear1_"+ key;
+        var losPrivateyear1string = "losPrivateyear1_" + key;
 
         var model = $parse(losPrivateyear1string);
         model.assign($scope, losPrivateyear1);
@@ -198,7 +197,7 @@ app.controller("DlAgriFisheriesProController", function ($scope, $http, $parse, 
             $scope.dlAgriFisheriesPro.agri_fisheries.Table_5[key].DlfLosMfisheriesDistrict[0].los_year_2_pub:0):0);
 
 
-        var losPublicyear2string = "losPublicyear2_"+ key;
+        var losPublicyear2string = "losPublicyear2_" + key;
 
         var model = $parse(losPublicyear2string);
         model.assign($scope, losPublicyear2);
@@ -219,7 +218,7 @@ app.controller("DlAgriFisheriesProController", function ($scope, $http, $parse, 
             $scope.dlAgriFisheriesPro.agri_fisheries.Table_5[key].DlfLosMfisheriesDistrict[0].los_year_2_pvt:0):0);
 
 
-        var losPrivateyear2string = "losPrivateyear2_"+ key;
+        var losPrivateyear2string = "losPrivateyear2_" + key;
 
         var model = $parse(losPrivateyear2string);
         model.assign($scope, losPrivateyear2);

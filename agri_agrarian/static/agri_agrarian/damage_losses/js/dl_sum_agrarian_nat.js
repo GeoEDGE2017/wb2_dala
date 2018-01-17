@@ -1,5 +1,4 @@
 var app = angular.module('dlAgriAgrarianNatApp', []);
-
 app.controller("DlAgriAgrarianNatController", ['$scope','$http',function ($scope,$http) {
     $scope.district;
     $scope.incident;
@@ -27,15 +26,15 @@ app.controller("DlAgriAgrarianNatController", ['$scope','$http',function ($scope
                 method: "POST",
                 url: '/dl_fetch_district_disagtn',
                 data: angular.toJson({
-                    'table_name':'Table_10',
+                    'table_name': 'Table_10',
                     'sector': 'agri_agrarian',
                     'com_data': {
                         'incident': $scope.incident,
                     },
                 }),
             }).success(function(data) {
-                console.log('load ', data);
                 $scope.dlAgriAgrarianSumNat = data;
+                console.log($scope.dlAgriAgrarianSumNat);
             })
         }
     }

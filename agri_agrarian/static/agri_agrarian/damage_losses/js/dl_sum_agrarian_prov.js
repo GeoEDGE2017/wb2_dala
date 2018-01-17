@@ -1,5 +1,4 @@
 var app = angular.module('dlSummeryAgProApp', []);
-
 app.controller("DlSummeryAgProController", ['$scope','$http',function ($scope,$http) {
     $scope.district;
     $scope.incident;
@@ -21,7 +20,7 @@ app.controller("DlSummeryAgProController", ['$scope','$http',function ($scope,$h
     $scope.provinces;
 
     // get relevant damage_losses data for calculations
-       $scope.changedValue=function getBsData(selectedValue) {
+    $scope.changedValue = function getBsData(selectedValue) {
         if($scope.incident && selectedValue) {
             fetchProvinces();
         }
@@ -30,9 +29,7 @@ app.controller("DlSummeryAgProController", ['$scope','$http',function ($scope,$h
         }
     }
 
-
-    function fetchProvinces()
-    {
+    function fetchProvinces() {
         $http({
             method: "POST",
             url: '/fetch_incident_provinces',
@@ -53,7 +50,7 @@ app.controller("DlSummeryAgProController", ['$scope','$http',function ($scope,$h
                     method: "POST",
                     url: '/dl_fetch_district_disagtn',
                     data: angular.toJson({
-                        'table_name':  'Table_9',
+                        'table_name': 'Table_9',
                         'sector': 'agri_agrarian',
                         'com_data': {
                             'province': $scope.province,
@@ -61,99 +58,98 @@ app.controller("DlSummeryAgProController", ['$scope','$http',function ($scope,$h
                          },
                     }),
                 }).success(function(data) {
-                    console.log('load ', data);
                     $scope.dlAgriAgrarianPro = data;
+                    console.log($scope.dlAgriAgrarianPro);
                 })
         }
     }
 
-   $scope.totDmgPublic = function() {
+    $scope.totDmgPublic = function() {
         if(!angular.isUndefined($scope.dlAgriAgrarianPro)) {
             var totDmg = 0;
             angular.forEach($scope.dlAgriAgrarianPro.agri_agrarian.Table_9, function(value, index) {
-            angular.forEach(value, function(value_in, key) {
+                angular.forEach(value, function(value_in, key) {
                     if(key == 'DsorDmgPubProvince') {
-                          totDmg = totDmg + value_in[0].damages;
+                        totDmg = totDmg + value_in[0].damages;
                     }
-                    })
                 })
+            })
             return totDmg;
         }
     }
 
-   $scope.totDmgPrivate = function() {
+    $scope.totDmgPrivate = function() {
         if(!angular.isUndefined($scope.dlAgriAgrarianPro)) {
             var totDmg = 0;
             angular.forEach($scope.dlAgriAgrarianPro.agri_agrarian.Table_9, function(value, index) {
-            angular.forEach(value, function(value_in, key) {
+                angular.forEach(value, function(value_in, key) {
                     if(key == 'DsorDmgPvtProvince') {
-                          totDmg = totDmg + value_in[0].damages;
+                        totDmg = totDmg + value_in[0].damages;
                     }
-                    })
                 })
+            })
             return totDmg;
         }
     }
 
-   $scope.totLosY1Public = function() {
+    $scope.totLosY1Public = function() {
         if(!angular.isUndefined($scope.dlAgriAgrarianPro)) {
             var totDmg = 0;
             angular.forEach($scope.dlAgriAgrarianPro.agri_agrarian.Table_9, function(value, index) {
-            angular.forEach(value, function(value_in, key) {
+                angular.forEach(value, function(value_in, key) {
                     if(key == 'DsorLosYear1Province') {
-                          totDmg = totDmg + value_in[0].dmg_los_pub;
+                        totDmg = totDmg + value_in[0].dmg_los_pub;
                     }
-                    })
                 })
+            })
             return totDmg;
         }
     }
 
-   $scope.totLosY1Private = function() {
+    $scope.totLosY1Private = function() {
         if(!angular.isUndefined($scope.dlAgriAgrarianPro)) {
             var totDmg = 0;
             angular.forEach($scope.dlAgriAgrarianPro.agri_agrarian.Table_9, function(value, index) {
-            angular.forEach(value, function(value_in, key) {
+                angular.forEach(value, function(value_in, key) {
                     if(key == 'DsorLosYear1Province') {
-                          totDmg = totDmg + value_in[0].dmg_los_pvt;
+                        totDmg = totDmg + value_in[0].dmg_los_pvt;
                     }
-                    })
                 })
+            })
             return totDmg;
         }
     }
 
-   $scope.totLosY2Public = function() {
+    $scope.totLosY2Public = function() {
         if(!angular.isUndefined($scope.dlAgriAgrarianPro)) {
             var totDmg = 0;
             angular.forEach($scope.dlAgriAgrarianPro.agri_agrarian.Table_9, function(value, index) {
-            angular.forEach(value, function(value_in, key) {
+                angular.forEach(value, function(value_in, key) {
                     if(key == 'DsorLosYear2Province') {
-                          totDmg = totDmg + value_in[0].dmg_los_pub;
+                        totDmg = totDmg + value_in[0].dmg_los_pub;
                     }
-                    })
                 })
+            })
             return totDmg;
         }
     }
 
-   $scope.totLosY2Private = function() {
+    $scope.totLosY2Private = function() {
         if(!angular.isUndefined($scope.dlAgriAgrarianPro)) {
             var totDmg = 0;
             angular.forEach($scope.dlAgriAgrarianPro.agri_agrarian.Table_9, function(value, index) {
-            angular.forEach(value, function(value_in, key) {
+                angular.forEach(value, function(value_in, key) {
                     if(key == 'DsorLosYear2Province') {
-                          totDmg = totDmg + value_in[0].dmg_los_pvt;
+                        totDmg = totDmg + value_in[0].dmg_los_pvt;
                     }
-                    })
                 })
+            })
             return totDmg;
         }
     }
 
-   $scope.checkIfNull = function() {
+    $scope.checkIfNull = function() {
         var isNull = $scope.dlAgriAgrarianPro ? angular.equals({}, $scope.dlAgriAgrarianPro.agri_agrarian.Table_9) : true;
         return isNull;
     }
-
  }])

@@ -1,6 +1,5 @@
 //Table 4
 var app = angular.module('dlSumFisheriesInTheDisApp', [])
-
 app.controller('dlSumFisheriesInTheDisController', ['$scope', '$http', function($scope, $http) {
     $scope.dlEduDistrict;
     $scope.total;
@@ -36,6 +35,7 @@ app.controller('dlSumFisheriesInTheDisController', ['$scope', '$http', function(
                 $scope.tot_damages = null;
                 $scope.is_edit = true;
                 $scope.submitted = true;
+
                 $http({
                     method: "POST",
                     url: '/dl_fetch_total_data',

@@ -1,6 +1,5 @@
 //Table 6
 var app = angular.module('dlAgriFisheriesNatApp', ['underscore']);
-
 app.controller("DlAgriFisheriesNatController", function ($scope,$http,$parse, _) {
     $scope.district;
     $scope.incident;
@@ -24,7 +23,7 @@ app.controller("DlAgriFisheriesNatController", function ($scope,$http,$parse, _)
     $scope.finalGrandTotPrivate = null;
     $scope.user_id;
 
-    $scope.fetchDlData = function(){
+    $scope.fetchDlData = function() {
         if($scope.incident){
             $scope.is_edit = true;
             $scope.submitted = true;
@@ -46,7 +45,7 @@ app.controller("DlAgriFisheriesNatController", function ($scope,$http,$parse, _)
         }
     }
 
-    $scope.checkIfNull = function(){
+    $scope.checkIfNull = function() {
         var isNull = $scope.dlAgriFisheriesSumNat ? angular.equals({}, $scope.dlAgriFisheriesSumNat.agri_fisheries.Table_6) : true;
         return isNull;
     }
@@ -66,7 +65,7 @@ app.controller("DlAgriFisheriesNatController", function ($scope,$http,$parse, _)
             ($scope.dlAgriFisheriesSumNat.agri_fisheries.Table_6[key].DlfDmgPubNational[2].dmg_pub ?
             $scope.dlAgriFisheriesSumNat.agri_fisheries.Table_6[key].DlfDmgPubNational[2].dmg_pub:0):0);
 
-        var damagepublicstring = "damagepublic_"+ key;
+        var damagepublicstring = "damagepublic_" + key;
 
         var model = $parse(damagepublicstring);
         model.assign($scope, damagepublic);
@@ -87,7 +86,7 @@ app.controller("DlAgriFisheriesNatController", function ($scope,$http,$parse, _)
             $scope.dlAgriFisheriesSumNat.agri_fisheries.Table_6[key].DlfDmgPvtNational[2].dmg_pvt:0):0);
 
 
-        var damageprivatestring = "damageprivate_"+ key;
+        var damageprivatestring = "damageprivate_" + key;
 
         var model = $parse(damageprivatestring);
         model.assign($scope, damageprivate);
@@ -107,7 +106,7 @@ app.controller("DlAgriFisheriesNatController", function ($scope,$http,$parse, _)
             ($scope.dlAgriFisheriesSumNat.agri_fisheries.Table_6[key].DlfLosMfisheriesNational[0].los_year_1_pub ?
             $scope.dlAgriFisheriesSumNat.agri_fisheries.Table_6[key].DlfLosMfisheriesNational[0].los_year_1_pub:0):0);
 
-        var losPubliceyear1string = "losPubliceyear1_"+ key;
+        var losPubliceyear1string = "losPubliceyear1_" + key;
 
         var model = $parse(losPubliceyear1string);
         model.assign($scope, losPubliceyear1);

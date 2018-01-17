@@ -391,9 +391,8 @@ app.controller('bsInfoAcfoAssetsController', ['$scope', '$http', function($scope
                 }),
             }).success(function(data) {
                 console.log(data);
-//                $scope.bsInfoAcfoAssets = data;
-
                 var edit_data_not_found = false;
+
                 if(data != null) {
                     angular.forEach(data.agri_agrarian.Table_2, function(value, index) {
                         console.log(value);
@@ -436,9 +435,8 @@ app.controller('bsInfoAcfoAssetsController', ['$scope', '$http', function($scope
                 }),
             }).success(function(data) {
                 console.log(data);
-//                $scope.bsInfoAcfoAssets = data;
-
                 var edit_data_not_found = false;
+
                 if(data != null) {
                     angular.forEach(data.agri_agrarian.Table_2, function(value, index) {
                         console.log(value);

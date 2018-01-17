@@ -1,6 +1,5 @@
 //Table 2
 var app = angular.module('bsInfoFisheriesApp', [])
-
 app.controller('bsInfoFisheriesController', function($scope, $http) {
     $scope.district;
     $scope.baselineDate;
@@ -11,7 +10,6 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
     $scope.user_id;
     $scope.check_search = false;
     $scope.is_search = false;
-
 
     //initialize Data
     var init_data = {
@@ -174,11 +172,8 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
     $scope.round = function(val1, val2, fractionSize) {
         $scope.Math = window.Math;
         console.log(val1 / val2);
-//        return (val1 / val2) | number:0;
         return $scope.Math.round(val1 / val2, fractionSize);
-//        return 1;
     }
-
 
     //Add Enumerate fields
     $scope.insertAsset = function(table) {
@@ -262,6 +257,7 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
     //Save data
     $scope.saveBsData = function(form) {
         $scope.submitted = true;
+
         if (form.$valid) {
             $http({
                 method: "POST",
@@ -279,12 +275,11 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
             }).success(function(data) {
                 $scope.bsInfoFisheries = init_data;
                 $scope.is_edit = false;
-                if (data == 'False')
-                   {
+                if (data == 'False') {
                     $("#modal-container-239454").modal('show');
                     $scope.is_valid_data = false;
                 }
-                else{
+                else {
                     $("#modal-container-239453").modal('show');
                 }
             })
@@ -295,6 +290,7 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
     $scope.editBsData = function(form){
         $scope.submitted = true;
         $scope.is_edit = true;
+
         if (form.$valid) {
             $http({
                 method: "POST",
@@ -309,9 +305,8 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
                     }
                 }),
             }).success(function(data) {
-                console.log(data);
-//                $scope.bsInfoFisheries = data;
                 var edit_data_not_found = false;
+
                 if(data != null) {
                     angular.forEach(data.agri_fisheries.Table_2, function(value, index) {
                         console.log(value);
@@ -321,6 +316,7 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
                     })
                     if(edit_data_not_found != true) {
                         $scope.bsInfoFisheries = data;
+                        console.log($scope.bsInfoFisheries);
                     }
                     else {
                         $("#modal-container-239456").modal('show');
@@ -338,8 +334,8 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
         document.getElementById("clearbtn").disabled = true;
 		document.getElementById("editbtn").disabled = true;
 		document.getElementById("subbtn").disabled = true;
-
 		$scope.is_search = true;
+
         if (form.$valid) {
             $http({
                 method: "POST",
@@ -354,18 +350,16 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
                     }
                 }),
             }).success(function(data) {
-                console.log(data);
-//                $scope.bsInfoFisheries = data;
                 var edit_data_not_found = false;
                 if(data != null) {
                     angular.forEach(data.agri_fisheries.Table_2, function(value, index) {
-                        console.log(value);
                         if(value.length == 0) {
                             edit_data_not_found = true;
                         }
                     })
                     if(edit_data_not_found != true) {
                         $scope.bsInfoFisheries = data;
+                        console.log($scope.bsInfoFisheries);
                     }
                     else {
                         $("#modal-container-239456").modal('show');
@@ -379,11 +373,11 @@ app.controller('bsInfoFisheriesController', function($scope, $http) {
     }
 
     //Cancel Edit
-     $scope.cancelEdit = function(){
+    $scope.cancelEdit = function(){
         $scope.is_edit = false;
         $scope.bsInfoFisheries = init_data;
         location.reload();
-     }
+    }
 
     //Clear Function
     $scope.clear = function() {

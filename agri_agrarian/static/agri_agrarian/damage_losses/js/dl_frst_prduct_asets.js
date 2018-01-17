@@ -1,6 +1,5 @@
 //Table 4
 var app = angular.module('dlFrstPrductAsetsApp', [])
-
 app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scope, $http) {
     $scope.district;
     $scope.selectedDistrict;
@@ -278,17 +277,17 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                 dataType: 'json',
             }).then(function successCallback(response) {
                 var data = response.data;
-                console.log('*', response);
                 angular.forEach(data, function(value, key) {
                     $scope.bs_data[key] = JSON.parse(value);
                 });
-                console.log('*', $scope.bs_data);
+
                 var is_null = false;
                 angular.forEach($scope.bs_data, function(value, index) {
                     if(value == null) {
                         is_null = true;
                     }
                 })
+
                 if(is_null == true) {
                     $("#modal-container-239458").modal('show');
                     console.log('baseline table or tables are empty');
@@ -347,7 +346,7 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
 
         angular.forEach(data_array, function(value, key) {
             obj_array = $scope.bs_data[value];
-            console.log('get array',obj_array);
+            console.log('get array', obj_array);
             model_name = value;
 
             var particular_value_1 = null;
@@ -575,7 +574,6 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                 if(model_name == 'BacfStocks') {
                     $scope.dlFrstPrductAsets.agri_agrarian.Table_4[dl_model7].push(obj7);
                 }
-
             });
 
             if(model_name == 'BacfFarmEquipment') {
@@ -622,7 +620,7 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                         'user_id' : $scope.user_id,
                     },
                     'bs_date': $scope.bsCreatedeDate,
-                    'is_edit':$scope.is_edit
+                    'is_edit': $scope.is_edit
                 }),
                 dataType: 'json',
             }).then(function successCallback(response) {
@@ -660,8 +658,6 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                    'is_edit':$scope.is_edit
                }),
             }).success(function(data) {
-//                $scope.dlFrstPrductAsets = data;
-                console.log(data);
                 var edit_data_not_found = false;
                 if (data != null) {
                     angular.forEach(data.agri_agrarian.Table_4, function(value, index) {
@@ -672,6 +668,7 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                     })
                     if (edit_data_not_found != true) {
                         $scope.dlFrstPrductAsets = data;
+                        console.log($scope.dlFrstPrductAsets);
                     }
                     else {
                         $("#modal-container-239456").modal('show');
@@ -709,9 +706,8 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                     'is_edit': $scope.is_edit
                 }),
             }).success(function(data) {
-//                $scope.dlFrstPrductAsets = data;
-//                console.log("searchDlData ", $scope.dlFrstPrductAsets);
                 var edit_data_not_found = false;
+
                 if (data != null) {
                     angular.forEach(data.agri_agrarian.Table_4, function(value, index) {
                         console.log(value);
@@ -721,7 +717,7 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
                     })
                     if (edit_data_not_found != true) {
                         $scope.dlFrstPrductAsets = data;
-                        console.log("searchDlData ", $scope.dlFrstPrductAsets);
+                        console.log($scope.dlFrstPrductAsets);
                     }
                     else {
                         $("#modal-container-239456").modal('show');
@@ -799,19 +795,19 @@ app.controller('dlFrstPrductAsetsController', ['$scope', '$http', function($scop
         var array10 = $scope.dlFrstPrductAsets.agri_agrarian.Table_4.DcpfReForestry;
 
         angular.forEach(array1, function(value, key) {
-            if(value.assets !="Total") {
+            if(value.assets != "Total") {
                 finaltotal1 = finaltotal1 + $scope.convertToFloat(value.dmg_pub);
             }
         })
 
         angular.forEach(array2, function(value, key) {
-            if(value.assets !="Total"){
+            if(value.assets != "Total"){
                 finaltotal2 = finaltotal2 + $scope.convertToFloat(value.dmg_pub);
             }
         })
 
         angular.forEach(array3, function(value, key) {
-            if(value.assets !="Total"){
+            if(value.assets != "Total"){
                 finaltotal3 = finaltotal3 + $scope.convertToFloat(value.dmg_pub);
             }
         })

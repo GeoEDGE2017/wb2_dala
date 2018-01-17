@@ -1060,17 +1060,19 @@ app.controller('dlIrrigationController', ['$scope', '$http', function($scope, $h
     $scope.editDlData = function(form) {
         $scope.is_edit = true;
         $scope.submitted = true;
+
         document.getElementById("clearbtn").disabled = true;
+
         if(form.$valid) {
             $http({
                 method: "POST",
                 url: '/dl_fetch_edit_data',
                 data: angular.toJson({
-                    'table_name':  'Table_3',
-                    'sector':'agri_irrigation',
+                    'table_name': 'Table_3',
+                    'sector': 'agri_irrigation',
                     'com_data': {
-                    'district':  $scope.district.district__id,
-                    'incident': $scope.incident,
+                        'district':  $scope.district.district__id,
+                        'incident': $scope.incident,
                     },
                     'is_edit':$scope.is_edit
                 }),
@@ -1091,18 +1093,17 @@ app.controller('dlIrrigationController', ['$scope', '$http', function($scope, $h
         document.getElementById("clearbtn").disabled = true;
 		document.getElementById("editbtn").disabled = true;
 		document.getElementById("subbtn").disabled = true;
-		console.log("test", $scope.district);
-		console.log("test", $scope.bs_date);
 		$scope.is_search = true;
+
         if(form.$valid) {
             $http({
                 method: "POST",
                 url: '/dl_fetch_edit_data',
                 data: angular.toJson({
-                    'table_name':  'Table_3',
-                    'sector':'agri_irrigation',
+                    'table_name': 'Table_3',
+                    'sector': 'agri_irrigation',
                     'com_data': {
-                        'district':  $scope.district.district__id,
+                        'district': $scope.district.district__id,
                         'incident': $scope.incident,
                     },
                     'is_edit':$scope.is_edit
@@ -1110,9 +1111,6 @@ app.controller('dlIrrigationController', ['$scope', '$http', function($scope, $h
             }).success(function(data) {
                 console.log(data);
                 $scope.dlIrrigation = data;
-
-                console.log('alert',$scope.dlIrrigation.agri_irrigation.Table_3.DlMajorTanks[0].division);
-
                 $scope.division = $scope.dlIrrigation.agri_irrigation.Table_3.DlMajorTanks[0].division;
                 $scope.region = $scope.dlIrrigation.agri_irrigation.Table_3.DlMajorTanks[0].region;
             })

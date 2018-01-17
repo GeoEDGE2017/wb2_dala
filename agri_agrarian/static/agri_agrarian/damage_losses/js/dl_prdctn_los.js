@@ -395,29 +395,29 @@ app.controller('dlPrdctnLosController', ['$scope', '$http', function($scope, $ht
             var particular_value_5 = null;
 
             if(model_name == 'BacfSeasonalCrops') {
-               dl_model1 = 'PldySeasonalCrops';
-               particular_value_1 = 'Total';
-               $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model1] = [];
+                dl_model1 = 'PldySeasonalCrops';
+                particular_value_1 = 'Total';
+                $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model1] = [];
             }
             if(model_name == 'BacfPlantnCrops') {
-               dl_model2 = 'PldyPlantnCrops';
-               particular_value_2 = 'Total';
-               $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model2] = [];
+                dl_model2 = 'PldyPlantnCrops';
+                particular_value_2 = 'Total';
+                $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model2] = [];
             }
             if(model_name == 'BacfExportCrops') {
-               dl_model3 = 'PldyExportCrops';
-               particular_value_3 = 'Total';
-               $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model3] = [];
+                dl_model3 = 'PldyExportCrops';
+                particular_value_3 = 'Total';
+                $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model3] = [];
             }
             if(model_name == 'BacfForestry') {
-               dl_model4 = 'PldyForestry';
-               particular_value_4 = 'Total';
-               $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model4] = [];
+                dl_model4 = 'PldyForestry';
+                particular_value_4 = 'Total';
+                $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model4] = [];
             }
             if(model_name == 'BacfOther') {
-               dl_model5 = 'PldyOther';
-               particular_value_5 = 'Total';
-               $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model5] = [];
+                dl_model5 = 'PldyOther';
+                particular_value_5 = 'Total';
+                $scope.dlPrdctnLos.agri_agrarian.Table_7[dl_model5] = [];
             }
 
             var obj1 = {
@@ -544,11 +544,12 @@ app.controller('dlPrdctnLosController', ['$scope', '$http', function($scope, $ht
     $scope.saveDlData = function(form) {
         $scope.submitted = true;
         $scope.is_submit = true;
+
         if(form.$valid) {
             $http({
                 method: 'POST',
                 url: '/dl_save_data',
-               contentType: 'application/json; charset=utf-8',
+                contentType: 'application/json; charset=utf-8',
                 data: angular.toJson({
                     'table_data': $scope.dlPrdctnLos,
                     'com_data': {
@@ -557,17 +558,17 @@ app.controller('dlPrdctnLosController', ['$scope', '$http', function($scope, $ht
                         'user_id': $scope.user_id,
                     },
                     'bs_date': $scope.bsCreatedeDate,
-                    'is_edit':$scope.is_edit
+                    'is_edit': $scope.is_edit
                 }),
                 dataType: 'json',
             }).then(function successCallback(response) {
                 if(response.data == 'False') {
-                        $scope.is_valid_data = false;
-                        $("#modal-container-239454").modal('show');
-                    }
-                    else {
-                        $("#modal-container-239453").modal('show');
-                    }
+                    $scope.is_valid_data = false;
+                    $("#modal-container-239454").modal('show');
+                }
+                else {
+                    $("#modal-container-239453").modal('show');
+                }
             }, function errorCallback(response) {
                 console.log(response);
             });
@@ -589,9 +590,10 @@ app.controller('dlPrdctnLosController', ['$scope', '$http', function($scope, $ht
 
     //Edit Data
     $scope.editDlData = function(form){
-       $scope.is_edit = true;
-       $scope.submitted = true;
+        $scope.is_edit = true;
+        $scope.submitted = true;
         document.getElementById("clearbtn").disabled = true;
+
         if(form.$valid){
             $http({
                 method: "POST",
@@ -614,12 +616,11 @@ app.controller('dlPrdctnLosController', ['$scope', '$http', function($scope, $ht
 
     //search Data
     $scope.searchDlData = function(form){
-       document.getElementById("clearbtn").disabled = true;
+        document.getElementById("clearbtn").disabled = true;
 		document.getElementById("editbtn").disabled = true;
 		document.getElementById("subbtn").disabled = true;
-		console.log("test", $scope.district);
-		console.log("test", $scope.bs_date);
 		$scope.is_search = true;
+
         if(form.$valid){
             $http({
                 method: "POST",
@@ -628,10 +629,10 @@ app.controller('dlPrdctnLosController', ['$scope', '$http', function($scope, $ht
                     'table_name':  'Table_7',
                     'sector':'agri_agrarian',
                     'com_data': {
-                       'district':  $scope.district.district__id,
+                        'district':  $scope.district.district__id,
                         'incident': $scope.incident,
                     },
-                     'is_edit':$scope.is_edit
+                    'is_edit':$scope.is_edit
                 }),
             }).success(function(data) {
             console.log(data);

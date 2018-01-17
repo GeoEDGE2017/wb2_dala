@@ -214,7 +214,8 @@ $(document).ready(function(){
                 <strong>Search</strong>
             </div>
             <div class="card-block">
-                <div ng-form name="report_sum_dl_dis" class="row">
+
+                <div ng-form name="report_sum_dl_dis" class="">
                     <div class="row">
                         <div class="col-sm-6 col-md-4">
                             <a href="/reports/summary_of_damages_and_losses_by_sector" style="text-decoration:none;">
@@ -228,8 +229,8 @@ $(document).ready(function(){
                                 </div>
                             </a>
                         </div>
-                    </div>
-                    <div class="row">
+
+
                         <div class="col-sm-6 col-md-4">
                             <a href="/reports/summary_of_damages_and_losses_by_province" style="text-decoration:none;">
                                 <div class="card card-inverse card-danger text-xs-center">
@@ -242,8 +243,10 @@ $(document).ready(function(){
                                 </div>
                             </a>
                         </div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
+                        <br>
                         <div class="form-group">
                             <label class="col-md-3" for="cvv">Sector</label>
                             <div class="col-sm-7">
@@ -281,6 +284,8 @@ $(document).ready(function(){
                         </div>
                     </div-->
                 </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-left:15px;">
                 <!-- Agri agrarian -->
                 <div class="row" id="agri_agrarian" style="display:none;">
                     <div class="col-sm-6 col-md-4">
@@ -551,6 +556,8 @@ $(document).ready(function(){
                         </a>
                     </div>
                 </div>
+                    </div>
+
                 <div class="row" id="sum_report" style="display:none;">
                     <div class="col-sm-6 col-md-4">
                         <a href="/reports/report_summary" style="text-decoration:none;">

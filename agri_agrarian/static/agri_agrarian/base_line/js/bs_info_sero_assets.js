@@ -14,8 +14,6 @@ app.controller('bsInfoSeroAssetsController', ['$scope', '$http', function($scope
     $scope.check_search = false;
     $scope.is_search = false;
 
-
-
     //initialize Data
     var init_data = {
         'agri_agrarian': {
@@ -73,7 +71,7 @@ app.controller('bsInfoSeroAssetsController', ['$scope', '$http', function($scope
             $scope.is_edit_disable = true;
              $scope.check_search = true;
         }
-        else{
+        else {
             $scope.is_edit_disable = false;
              $scope.check_search = false;
         }
@@ -144,13 +142,13 @@ app.controller('bsInfoSeroAssetsController', ['$scope', '$http', function($scope
                 $scope.bsInfoSeroAssets = init_data;
                 $scope.is_edit = false;
 
-                if (data == 'False')
-                   {
+                if (data == 'False') {
                     $("#modal-container-239454").modal('show');
                     $scope.is_valid_data = false;
                 }
-                else
+                else {
                     $("#modal-container-239453").modal('show');
+                }
             })
         }
         $scope.is_submit = false;
@@ -163,39 +161,35 @@ app.controller('bsInfoSeroAssetsController', ['$scope', '$http', function($scope
         document.getElementById("clearbtn").disabled = true;
         if (form.$valid) {
             $http({
-            method: "POST",
-            url: "/bs_fetch_edit_data",
-            data: angular.toJson({
-                  'table_name': 'Table_3',
-                  'sector': 'agri_agrarian',
-                  'com_data': {
-                    'district': $scope.district,
-                    'bs_date': $scope.bs_date
-                  } }),
+                method: "POST",
+                url: "/bs_fetch_edit_data",
+                data: angular.toJson({
+                    'table_name': 'Table_3',
+                    'sector': 'agri_agrarian',
+                    'com_data': {
+                        'district': $scope.district,
+                        'bs_date': $scope.bs_date
+                    }
+                }),
             }).success(function(data) {
-                console.log(data);
-//                $scope.bsInfoSeroAssets = data;
-
                 var edit_data_not_found = false;
+
                 if(data != null) {
-                    console.log('----if');
                     angular.forEach(data.agri_agrarian.Table_3, function(value, index) {
-                        console.log('----forEach');
                         console.log(value);
                         if(value.length == 0) {
-                            console.log('----');
                             edit_data_not_found = true;
                         }
                     })
                     if(edit_data_not_found != true) {
                         $scope.bsInfoSeroAssets = data;
+                        console.log($scope.bsInfoSeroAssets);
                     }
                     else {
                         $("#modal-container-239456").modal('show');
                     }
                 }
                 else {
-                    console.log('----else');
                     $("#modal-container-239456").modal('show');
                 }
             })
@@ -207,59 +201,54 @@ app.controller('bsInfoSeroAssetsController', ['$scope', '$http', function($scope
         document.getElementById("clearbtn").disabled = true;
 		document.getElementById("editbtn").disabled = true;
 		document.getElementById("subbtn").disabled = true;
-		console.log("test", $scope.district);
-		console.log("test", $scope.bs_date);
 		$scope.is_search = true;
         document.getElementById("clearbtn").disabled = true;
+
         if (form.$valid) {
             $http({
-            method: "POST",
-            url: "/bs_fetch_edit_data",
-            data: angular.toJson({
-                  'table_name': 'Table_3',
-                  'sector': 'agri_agrarian',
-                  'com_data': {
-                    'district': $scope.district,
-                    'bs_date': $scope.bs_date
-                  } }),
+                method: "POST",
+                url: "/bs_fetch_edit_data",
+                data: angular.toJson({
+                    'table_name': 'Table_3',
+                    'sector': 'agri_agrarian',
+                    'com_data': {
+                        'district': $scope.district,
+                        'bs_date': $scope.bs_date
+                    }
+                }),
             }).success(function(data) {
-                console.log(data);
-//                $scope.bsInfoSeroAssets = data;
-
                 var edit_data_not_found = false;
+
                 if(data != null) {
-                    console.log('----if');
                     angular.forEach(data.agri_agrarian.Table_3, function(value, index) {
-                        console.log('----forEach');
                         console.log(value);
                         if(value.length == 0) {
-                            console.log('----');
                             edit_data_not_found = true;
                         }
                     })
                     if(edit_data_not_found != true) {
                         $scope.bsInfoSeroAssets = data;
+                        console.log($scope.bsInfoSeroAssets);
                     }
                     else {
                         $("#modal-container-239456").modal('show');
                     }
                 }
                 else {
-                    console.log('----else');
                     $("#modal-container-239456").modal('show');
                 }
             })
         }
     }
 
-//Cancel Edit
+    //Cancel Edit
     $scope.cancelEdit = function(){
         $scope.is_edit = false;
         $scope.bsInfoSeroAssets = init_data;
         location.reload();
     }
 
-//Clear Function
+    //Clear Function
     $scope.clear = function() {
         console.log('done');
         $scope.is_edit = false;

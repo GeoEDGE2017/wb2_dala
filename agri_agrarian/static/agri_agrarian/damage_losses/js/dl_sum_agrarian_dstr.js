@@ -1,8 +1,6 @@
 //Table 8
 var app = angular.module('dlSumAgrarianDstrApp', [])
-
 app.controller('dlSumAgrarianDstrController', ['$scope', '$http', function($scope, $http) {
-
     $scope.dlEduDistrict;
     $scope.total;
     $scope.iter_tot;
@@ -42,7 +40,7 @@ app.controller('dlSumAgrarianDstrController', ['$scope', '$http', function($scop
                     url: '/dl_fetch_total_data',
                     data: angular.toJson({
                         'table_name': 'Table_8',
-                        'sector':'agri_agrarian',
+                        'sector': 'agri_agrarian',
                         'com_data': {
                             'district': $scope.district.district__id,
                             'incident': $scope.incident,

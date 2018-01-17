@@ -1,6 +1,5 @@
 //Table 3
 var app = angular.module('dlFisheriesDistrictApp', ['underscore'])
-
 app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, _) {
     $scope.district;
     $scope.selectedDistrict;
@@ -393,82 +392,39 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
             })
         }
 
-//        if($scope.incident && $scope.district ) {
-//            $http({
-//                method: 'POST',
-//                url: '/bs_get_data_mock',
-//                contentType: 'application/json; charset=utf-8',
-//                data: angular.toJson({
-//                    'db_tables': ['BifAstFequipment','BifAstOequipment','BifAstMachinery','BifAstStructures','BifAstBuildings',
-//                    'BifProduction'],
-//                    'com_data': {
-//                        'district': $scope.district.district__id,
-//                        'incident': $scope.incident,
-//                    },
-//                    'table_name': 'Table_2',
-//                    'sector': 'agri_fisheries'
-//                }),
-//                dataType: 'json',
-//            }).then(function successCallback(response) {
-//                var data = response.data;
-//                console.log('tets',response.data);
-//                angular.forEach(data, function(value, key) {
-//                    $scope.bs_data[key] = JSON.parse(value);
-//                });
-//
-//                 var is_null = false;
-//
-//                angular.forEach($scope.bs_data, function(value, index) {
-//                    if(value==null) {
-//                        is_null = true;
-//                    }
-//                })
-//
-//                if(is_null == true) {
-////                    $("#modal-container-239455").modal('show');
-//                    console.log('baseline table or tables are empty');
-//                    console.log($scope.bs_data);
-//                }
-//                else{
-//                generateRefencedData();
-//                }
-//                console.log($scope.dlFisheriesDistrict);
-//            }, function errorCallback(response) {
-//                console.log(response);
-//            });
-//        }
-
-         if($scope.incident && $scope.district) {
+        if($scope.incident && $scope.district) {
             $scope.is_edit_disable = true;
             $scope.check_search = true;
+
             $http({
                 method: 'POST',
                 url: '/bs_get_data_mock',
                 contentType: 'application/json; charset=utf-8',
                 data: angular.toJson({
-                    'db_tables': ['BifAstFequipment','BifAstOequipment','BifAstMachinery','BifAstStructures','BifAstBuildings','BifProduction'],
+                    'db_tables': ['BifAstFequipment', 'BifAstOequipment', 'BifAstMachinery', 'BifAstStructures',
+                        'BifAstBuildings', 'BifProduction'],
                     'com_data': {
                         'district': $scope.district.district__id,
                         'incident': $scope.incident,
                     },
                     'table_name': 'Table_2',
-                    'sector':'agri_fisheries',
+                    'sector': 'agri_fisheries',
                 }),
                 dataType: 'json',
             }).then(function successCallback(response) {
-
                 var data = response.data;
-                console.log('*', response);
+
                 angular.forEach(data, function(value, key) {
                     $scope.bs_data[key] = JSON.parse(value);
                 });
-                console.log('*', $scope.bs_data);
+
                 var is_null = false;
                 angular.forEach($scope.bs_data, function(value, index) {
                     if(value == null) {
                         is_null = true;
                     }
                 })
+
                 if(is_null == true) {
                     $("#modal-container-239458").modal('show');
                     console.log('baseline table or tables are empty');
@@ -671,7 +627,7 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
         if(form.$valid) {
             $http({
                 method: 'POST',
-                url:'/dl_save_data',
+                url: '/dl_save_data',
                 contentType: 'application/json; charset=utf-8',
                 data: angular.toJson({
                     'table_data': $scope.dlFisheriesDistrict,
@@ -679,7 +635,7 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
                         'district_id': $scope.district.district__id,
                         'incident_id': $scope.incident,
                         'user_id' : $scope.user_id,
-                        'ftype_id':$scope.fishing_type.id,
+                        'ftype_id': $scope.fishing_type.id,
                     },
                     'bs_date': $scope.bsCreatedeDate,
                     'is_edit' : $scope.is_edit,
@@ -703,8 +659,8 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
     $scope.CalTot = function(arr,property) {
         var finaltotal = 0;
         angular.forEach(arr, function(value, key) {
-            if(value.assets != 'Total' && value.assets !='Percentage Reduction in Value of Yield (%)'){
-                finaltotal = finaltotal + value[property] ;
+            if(value.assets != 'Total' && value.assets != 'Percentage Reduction in Value of Yield (%)') {
+                finaltotal = finaltotal + value[property];
             }
         })
         return finaltotal;
@@ -719,25 +675,6 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
         })
         return finaltotal;
     }
-
-//     $scope.CalTote = function() {
-//        if(!angular.isUndefined($scope.dlFisheriesDistrict)) {
-//            var totDmg = 0;
-//            angular.forEach($scope.dlFisheriesDistrict.agri_fisheries.Table_3, function(value, index) {
-//            if(value.assets =='1 floor' && value.assets =='2-3 floors' && value.assets =='More than 3 floors'){
-//            console.log('test',value);
-//            angular.forEach(value, function(value_in, key) {
-//                    if(key == 'DlfDmgPub') {
-//                          totDmg = totDmg + value_in[0].total;
-//                    }
-//                    })
-//                    }
-//                })
-//                }
-//
-//            return totDmg;
-//
-//    }
 
     //Calculate Grand Total
     $scope.calGrandPubTotal = function(){
@@ -754,42 +691,39 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
         var array4 = $scope.dlFisheriesDistrict.agri_fisheries.Table_3.DlfDmgStructures;
         var array5 = $scope.dlFisheriesDistrict.agri_fisheries.Table_3.DlfDmgPub;
 
-        console.log('test',$scope.dlFisheriesDistrict.agri_fisheries.Table_3.DlfDmgFequipment);
+        console.log($scope.dlFisheriesDistrict.agri_fisheries.Table_3.DlfDmgFequipment);
 
         angular.forEach(array1, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total'){
                 finaltotal1 = finaltotal1 + value.dmg_pub ;
              }
         })
         angular.forEach(array2, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total'){
                 finaltotal2 = finaltotal2 + value.dmg_pub ;
              }
         })
         angular.forEach(array3, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total'){
                 finaltotal3 = finaltotal3 + value.dmg_pub ;
              }
         })
         angular.forEach(array4, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total'){
                 finaltotal4 = finaltotal4 + value.dmg_pub ;
              }
         })
          angular.forEach(array5, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total'){
                 finaltotal5 = finaltotal5 + value.total ;
              }
         })
 
-//       if(finaltotal1 || finaltotal2 || finaltotal3 || finaltotal4 || finaltotal5){
-            grantot = finaltotal1 +  finaltotal2 + finaltotal3 + finaltotal4 + finaltotal5;
-
-            return grantot;
-//       }
+        grantot = finaltotal1 +  finaltotal2 + finaltotal3 + finaltotal4 + finaltotal5;
+        return grantot;
     }
 
-    $scope.calGrandPvtTotal = function(){
+    $scope.calGrandPvtTotal = function() {
         var finaltotal1 = 0;
         var finaltotal2 = 0;
         var finaltotal3 = 0;
@@ -805,54 +739,55 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
         var array5 = $scope.dlFisheriesDistrict.agri_fisheries.Table_3.DlfDmgPvt;
 
         angular.forEach(array1, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total'){
                 finaltotal1 = finaltotal1 + value.dmg_pvt ;
-             }
+            }
         })
 
         angular.forEach(array2, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total') {
                 finaltotal2 = finaltotal2 + value.dmg_pvt ;
-             }
+            }
         })
 
         angular.forEach(array3, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total') {
                 finaltotal3 = finaltotal3 + value.dmg_pvt ;
             }
         })
 
         angular.forEach(array4, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total') {
                 finaltotal4 = finaltotal4 + value.dmg_pvt ;
-             }
+            }
         })
 
         angular.forEach(array5, function(value, key) {
-            if(value.assets !='Total'){
+            if(value.assets != 'Total') {
                 finaltotal5 = finaltotal5 + value.total ;
-             }
+            }
         })
         grantot = finaltotal1 + finaltotal2 + finaltotal3 + finaltotal4 + finaltotal5;
         return grantot;
     }
 
     //Edit Data
-    $scope.editDlData = function(form){
+    $scope.editDlData = function(form) {
         $scope.is_edit = true;
         $scope.submitted = true;
         document.getElementById("clearbtn").disabled = true;
+
         if(form.$valid) {
             $http({
                 method: "POST",
                 url: '/dl_fetch_edit_data',
                 data: angular.toJson({
-                    'table_name':  'Table_3',
-                    'sector':'agri_fisheries',
+                    'table_name': 'Table_3',
+                    'sector': 'agri_fisheries',
                     'com_data': {
-                       'district':  $scope.district.district__id,
-                       'incident': $scope.incident,
-                       'ftype_id':$scope.fishing_type.id,
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
+                        'ftype_id': $scope.fishing_type.id,
                     },
                     'is_edit':$scope.is_edit
                 }),
@@ -875,12 +810,12 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
                 method: "POST",
                 url: '/dl_fetch_edit_data',
                 data: angular.toJson({
-                    'table_name':  'Table_3',
-                    'sector':'agri_fisheries',
+                    'table_name': 'Table_3',
+                    'sector': 'agri_fisheries',
                     'com_data': {
-                       'district':  $scope.district.district__id,
+                       'district': $scope.district.district__id,
                        'incident': $scope.incident,
-                       'ftype_id':$scope.fishing_type.id,
+                       'ftype_id': $scope.fishing_type.id,
                     },
                     'is_edit':$scope.is_edit
                 }),
@@ -892,7 +827,7 @@ app.controller('dlFisheriesDistrictController', function($scope, $http, $parse, 
     }
 
     //Cancel Edit
-    $scope.cancelEdit = function(){
+    $scope.cancelEdit = function() {
         $scope.is_edit = false;
         $scope.dlFisheriesDistrict = init_data;
         location.reload();

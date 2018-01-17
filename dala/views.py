@@ -2657,7 +2657,7 @@ def get1_summary_data_by_sector_for_provinces(request):
     incident = com_data['incident']
     sectors = data['sectors']
 
-    sector_provinces_summary = {'report': {}}
+    sector_provinces_summary = {'report': {table_name: {}}}
 
     tables = settings.TABLE_PROPERTY_MAPPER['reports'][table_name]
 
@@ -2678,14 +2678,14 @@ def get1_summary_data_by_sector_for_provinces(request):
                         # print '@', l, type(l), i
                         province_name = l['name']
                         province_id = l['province']
-                        sector_provinces_summary['report'][province_name] = {}
+                        sector_provinces_summary['report'][table_name][province_name] = {}
 
                         for key2, views2 in sector.iteritems():
                             for view2 in views2:
-                                sector_provinces_summary['report'][province_name][view2] = {}
+                                sector_provinces_summary['report'][table_name][province_name][view2] = {}
                                 dl_session_model2 = apps.get_model('reports', view2)
                                 filterd_fields2 = tables[key2][view2]
-                                sector_provinces_summary['report'][province_name][view2] = list(dl_session_model2.objects.filter(incident=incident, province=province_id).values(*filterd_fields2))
+                                sector_provinces_summary['report'][table_name][province_name][view2] = list(dl_session_model2.objects.filter(incident=incident, province=province_id).values(*filterd_fields2))
                 except Exception as e:
                     print 'error', e
 

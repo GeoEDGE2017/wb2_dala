@@ -84,7 +84,7 @@
                         Private
                     </td>
                 </tr>
-                <tr ng-repeat="(province,value) in provinceSumNat.report" height="20">
+                <tr ng-repeat="(province, value) in provinceSumNat.report.Table_2" height="20">
                     <td ng-bind="province" height="20" class="tdpa">
                     </td>
                     <td class="right" ng-bind="value.SumProvinceDmg[0].tot_dmg | number">
@@ -103,15 +103,15 @@
                     <td height="20" class="tdpa">
                         TOTAL
                     </td>
-                    <td>
+                    <td class="right" ng-bind="grandTotDamage() | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="grandTotLosses() | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="(grandTotDamage() + grandTotLosses()) | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="grandTotPub() | number">
                     </td>
-                    <td>
+                    <td class="right" ng-bind="grandTotPvt() | number">
                     </td>
                 </tr>
             </tbody>
